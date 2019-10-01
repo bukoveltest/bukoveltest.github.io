@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html dir="LTR" lang="ru-ru">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+      <meta http-equiv="cache-control" content="no-cache">
+      <meta http-equiv="expires" content="0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Skipass</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <meta name="description" content="My Store" />
+      <script src="catalog/view/theme/bukovel/node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="catalog/view/theme/bukovel/js/dropzone.js"></script>
+      <script src="catalog/view/theme/bukovel/node_modules/jquery-editable-select/dist/jquery-editable-select.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-editable-select/dist/jquery-editable-select.css" />
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/assets/build/styles.css">
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-nice-select/css/nice-select.css" />
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/js/checkout/library/phoneformat/css/intlTelInput.css" />
+      <script src="https://kit.fontawesome.com/ac8fc7a7fb.js" crossorigin="anonymous"></script>
+      <script src="catalog/view/theme/bukovel/js/jquery.mask.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+      <script src="google-translate.js"></script>
+      <!-- <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script> -->
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/cropper/dist/cropper.min.css" />
+      <link href="image/catalog/cart.png" rel="icon" />
+      <style>
+         .hide {
+         display: none;
+         }
+         #error-msg {
+         color: #C00808;
+         font-weight: 300;
+         font-size: 12px;
+         margin-top: 10px;
+         }
+      </style>
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-KC3QLLS');
+      </script>
+      <!-- End Google Tag Manager --><script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   </head>
+   <body>
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC3QLLS"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+      <header class="header">
+         <div class="header-wrap">
+            <a href="index.html" class="logo"><img src="catalog/view/theme/bukovel/images/logo/ru-ru_logo.png" alt=""></a>
+            <nav class="nav">
+               <div class="nav-icon">
+                  <svg class="icon icon--burger">
+                     <use xlink:href="#icon--burger"></use>
+                  </svg>
+                  <svg class="icon icon--close">
+                     <use xlink:href="#icon--close"></use>
+                  </svg>
+               </div>
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#skiing-anchor">Катание</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#rental-of-ski-equipment-anchor">Прокат снаряжения</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#vip-cards-anchor">Клубные Карты</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#contacts-anchor">Контакты</a>
+                  </li>
+               </ul>
+            </nav>
+            </select> 
+               <select class="header__lang translation-links nice-select" name="lang" onchange="top.location=this.value">
+                        <option value="rules_en.html"class="language__img english">EN</option>
+                        <option value="rules.html"class="language__img russian"selected>RU </option>
+                        <option value="rules_uk.html"class="language__img ukraine">UA</option>
+                </select>
+            <select id="currencySelector" class="header__lang translation-links" style="width: 60px">
+               <option value="₴">UAH</option>
+               <option value="€">EUR</option>
+               <option value="$">USD</option>
+            </select>
+         </div>
+      </header>
+
+
+
+<div class="content" role="main">
+      <h1>Правила покупки и использования скипассов</h1>
+      <p align="left" id="caption_product_info">
+	З цього сезону,&nbsp; ми дещо змінюємо та оптимізуємо правила купівлі акційних абонементів.</p>
+<p align="left" id="caption_product_info">
+	Від тепер, акційні абонементи можна буде купити виключно <strong>on</strong><strong>-</strong><strong>line</strong> в єдиного , офіційного дилера&nbsp; курорту&nbsp; <a href="https://shop.bukovel.info/">https://shop.bukovel.info</a></p>
+<p align="left" id="caption_product_info">
+	При купівлі акційних абонементів on-line вам потрібно буде пройти коротку процедуру авторизації та прикріпити до кожного придбаного абонементу ваше фото.&nbsp; <strong>Фото власника має бути зроблене на світлому фоні. 70-80% від площі фотографії має займати обличчя&nbsp; власника, відповідати його сучасному зовнішньому вигляду та бути зробленим без застосування ретушування, чи іншого способу корегування. У випадку, якщо людина носить окуляри – додаткові вимоги: скло незатемнене і без відблисків, оправа не повинна закривати жодної частини ока. Фото для авторизації можна буде загрузити як з комп’ютера так і зробити за допомогою веб-камери on-line. &nbsp;Акційний абонемент стає активним виключно після процесу його авторизації та закріпленням за ним особи власника. Зміна особи власника акційного абонемента не можлива. </strong></p>
+<p align="left" id="caption_product_info">
+	Нагадуємо, що у ТК «Буковель» діє правило&nbsp; 1 абонемент&nbsp; - 1 людина. Абонемент є власністю однієї людини, відповідно, використовувати його може тільки він (вона).&nbsp; При виявленні використання акційного абонементу людиною, яка не є його зареєстрованим власником,&nbsp; абонемент буде заблокований&nbsp; службою безпеки курорту.&nbsp; Передача абонементу близьким родичам, друзям, членам сім'ї також заборонена. Наголошуємо, що при купівлі абонементів на сумнівних сайтах, з рук&nbsp; чи в інших не авторизованих точках продажу, курорт не несе відповідальності за їх придатність до використання.&nbsp; <strong>Тим не менш, наголошуємо на тому, що всі акційні та не використані діючі абонементи , які були придбані по наших акціях в попередні роки дійсні до їх повного використання без додаткової фото-авторизації. </strong></p>
+<p align="left" id="caption_product_info">
+	Адміністрація курорту була змушена піти на такі кроки, адже в цьому сезоні ми фіксували особливо багато випадків, коли наші гості ставали жертвами недобросовісних дилерів та шахраїв.</p>
+<p align="left" id="caption_product_info">
+	При купівлі абонементів з рук чи Інтернет,&nbsp; людям часто продавали використані &nbsp;або підроблені абонементи. Спостерігались&nbsp; перепродажі абонементів з рук в межах курорту, що також заборонено.&nbsp; Часто, шахраї пробували отримати (відновити) абонемент на катання в касі, пред’являючи фальшивий фіскальний чек.</p>
+<p align="left" id="caption_product_info">
+	Впевнені, що завдяки впровадженню нових правил купівлі акційних абонементів таких випадків стане значно менше, що в свою чергу, буде мати позитивні наслідки для всіх гостей курорту.</p>
+<p align="left" id="caption_product_info">
+	Купуйте акційні абонементи. Заощаджуйте ваші кошти а не емоції.</p>
+<p align="left" id="caption_product_info">
+	Країна «Буковель»&nbsp; запрошує вас.</p>
+<p align="left" id="caption_product_info">
+	&nbsp;</p>
+</div>
+<footer class="footer">
+         <div class="connect" >
+            <h4 class="connect__header">Обратная связь</h4>
+            <form class="connect__form" enctype="multipart/form-data" action="feedback.php" id="connect" method="POST">
+               <input class="connect__name" name="feedback_name" placeholder="Ваше имя">
+               <input class="connect__email" type="email" name="feedback_mail" placeholder="E-mail">
+               <textarea name="feedback_text" class="connect__question" placeholder="Ваш вопрос"></textarea>
+               <!-- <div class="form-row">
+                  <br />
+                  <div class="g-recaptcha" data-sitekey="6LeZ2lcUAAAAAMHbBkKbnp2i2byTyqQ0A4cGDVaH"></div>
+               </div> -->
+               <input class="connect__submit" type="submit" value="ОТПРАВИТЬ">
+            </form>
+
+
+
+         </div>
+         <div class="info" id="contacts-anchor">
+            <div class="phones">
+               <h4 class="phones__header">Телефон</h4>
+               <ul class="phones__list">
+                  <li class="phones__item">
+                     <svg class="icon icon--phone">
+                        <use xlink:href="#icon--phone"></use>
+                     </svg>
+                     +38 (044) 500-88-18        
+                  </li>
+                  <li class="phones__item">0 800 212-244</li>
+               </ul>
+            </div>
+            <span class="email">
+               <svg class="icon icon--message">
+                  <use xlink:href="#icon--message"></use>
+               </svg>
+               shop_admin@bukovel.com    
+            </span>
+            <div class="location">
+               <h4 class="location__header">Адресс</h4>
+               <span class="location__address">
+                  <svg class="icon icon--pin">
+                     <use xlink:href="#icon--pin"></use>
+                  </svg>
+                  вул. Січових Стрільців, 23. оф. 407 м. Івано-Франківськ, 76019
+               </span>
+            </div>
+         </div>
+         <a class="bukovel" href=""><img src="catalog/view/theme/bukovel/images/bukovel_logo.png"></a>
+         <div class="verified"><a class="verified" href="http://tickets.bukovel.com" target="_blank">Баланс скипасса</a></div>
+         <div class="verified"><a class="verified" href="visa">Verified by Visa</a></div>
+         <div class="master-card"><a class="verified" href="mastercard">MasterCard Secure Code</a></div>
+         <div class="master-card"><a class="verified" href="delivery.html">Оплата и доставка</a></div>
+         <div class="master-card"><a class="verified" href="rules.html">Правила покупки и использования скипассов</a></div>
+      </footer>
+
+<script>
+  (function(d) {
+    // Request the sprite
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", 'catalog/view/theme/bukovel/assets/build/sprite.svg', true);
+    ajax.onreadystatechange = function () {
+      if (ajax.readyState === 4 && ajax.status === 200) {
+        var div = d.createElement("div");
+        div.style.display = "none";
+        div.innerHTML = ajax.responseText;
+        d.body.insertBefore(div, d.body.childNodes[0]);
+      }
+    };
+    ajax.send();
+  })(document);
+</script>
+ <link type="text/css" rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-autocomplete/jquery.autocomplete.css"/>
+<script src="catalog/view/theme/bukovel/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+<script src="catalog/view/theme/bukovel/node_modules/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script src="catalog/view/theme/bukovel/node_modules/cropper/dist/cropper.min.js"></script>
+ <script src="catalog/view/theme/bukovel/node_modules/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script src="catalog/view/theme/bukovel/js/bundle.js"></script>
+<script src="catalog/view/theme/bukovel/js/process.js"></script>
+<script src="catalog/view/theme/bukovel/js/optionQuality.js"></script>
+<script src="catalog/view/theme/bukovel/js/common.js"></script>
+<script src="catalog/view/theme/bukovel/js/profile.js"></script>
+  <script src="catalog/view/theme/bukovel/js/checkout/library/phoneformat/js/intlTelInput.js"></script> 
+
+
+
+</body>
+</html>

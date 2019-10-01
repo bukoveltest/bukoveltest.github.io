@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html dir="LTR" lang="ru-ru">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+      <meta http-equiv="cache-control" content="no-cache">
+      <meta http-equiv="expires" content="0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Skipass</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <meta name="description" content="My Store" />
+      <script src="catalog/view/theme/bukovel/node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="catalog/view/theme/bukovel/js/dropzone.js"></script>
+      <script src="catalog/view/theme/bukovel/node_modules/jquery-editable-select/dist/jquery-editable-select.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-editable-select/dist/jquery-editable-select.css" />
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/assets/build/styles.css">
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-nice-select/css/nice-select.css" />
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/js/checkout/library/phoneformat/css/intlTelInput.css" />
+      <script src="https://kit.fontawesome.com/ac8fc7a7fb.js" crossorigin="anonymous"></script>
+      <script src="catalog/view/theme/bukovel/js/jquery.mask.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+      <script src="google-translate.js"></script>
+      <!-- <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script> -->
+      <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/cropper/dist/cropper.min.css" />
+      <link href="image/catalog/cart.png" rel="icon" />
+      <style>
+         .hide {
+         display: none;
+         }
+         #error-msg {
+         color: #C00808;
+         font-weight: 300;
+         font-size: 12px;
+         margin-top: 10px;
+         }
+      </style>
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-KC3QLLS');
+      </script>
+      <!-- End Google Tag Manager --><script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   </head>
+   <body>
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC3QLLS"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+      <header class="header">
+         <div class="header-wrap">
+            <a href="index.html" class="logo"><img src="catalog/view/theme/bukovel/images/logo/ru-ru_logo.png" alt=""></a>
+            <nav class="nav">
+               <div class="nav-icon">
+                  <svg class="icon icon--burger">
+                     <use xlink:href="#icon--burger"></use>
+                  </svg>
+                  <svg class="icon icon--close">
+                     <use xlink:href="#icon--close"></use>
+                  </svg>
+               </div>
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#skiing-anchor"><ya-tr-span data-index="0-0" data-value="Катание" data-translation="Катання" data-type="trSpan">Катання</ya-tr-span></a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#rental-of-ski-equipment-anchor"><ya-tr-span data-index="1-0" data-value="Прокат снаряжения" data-translation="Прокат спорядження" data-type="trSpan">Прокат спорядження</ya-tr-span></a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#vip-cards-anchor"><ya-tr-span data-index="2-0" data-value="Клубные Карты" data-translation="Клубні Карти" data-type="trSpan">Клубні Карти</ya-tr-span></a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#contacts-anchor"><ya-tr-span data-index="3-0" data-value="Контакты" data-translation="Контакти" data-type="trSpan">Контакти</ya-tr-span></a>
+                  </li>
+               </ul>
+            </nav>
+                 
+           
+                  <select class="header__lang translation-links nice-select" name="lang" onchange="top.location=this.value">
+                        <option value="discount_buy_en.html"class="language__img english">EN</option>
+                        <option value="discount_buy.html"class="language__img russian">RU </option>
+                        <option value="discount_buy_uk.html"class="language__img ukraine"selected>UA</option>
+                </select>
+               <select id="currencySelector" class="header__lang translation-links" style="width: 60px">
+                  <option value="₴">UAH</option>
+                  <option value="€">EUR</option>
+                  <option value="$">USD</option>
+               </select>
+         </div>
+      </header>
+
+      <form method="POST" class="form__body" id="ident" action="club_card_buy.php" enctype="multipart/form-data">
+            <div class="content clearfix vip-card-content" role="main">
+               <div class="page-title"><ya-tr-span data-index="10-0" data-value="Покупка VIP-карты" data-translation="Купівля VIP-карти" data-type="trSpan">Купівля VIP-карти</ya-tr-span></div>
+               <div class="vip-card-info pull-left">
+                  <div class="info-header clearfix">
+                     <div class="header-panel">
+                        <img src="catalog/view/theme/bukovel/images/cart-items/ru-ru/1.png" class="pull-left card-image">
+                        <div class="card-info-hold pull-left">
+                           <h4><ya-tr-span data-index="11-0" data-value="Клубная карта" data-translation="Клубна карта" data-type="trSpan">Клубна карта</ya-tr-span></h4>
+                           <h2 name="itemname"><ya-tr-span data-index="12-0" data-value="Дисконтная" data-translation="Дисконтна" data-type="trSpan">Дисконтна</ya-tr-span></h2>
+                           <h3 class="usd" style="display: none;">182.77 $</h3>
+                           <h3 class="uah" style="display: relative;" name="sum"><ya-tr-span data-index="13-0" data-value="4 500.00 ₴" data-translation="4 500.00 ₴" data-type="trSpan">4 500.00 ₴</ya-tr-span></h3>
+                           <h3 class="eur" style="display: none;"><ya-tr-span data-index="14-0" data-value="165.15 €" data-translation="165.15 €" data-type="trSpan">165.15 €</ya-tr-span></h3>
+                        </div>
+                     </div>
+                     <div class="button-wrap">
+                        <i><ya-tr-span data-index="15-0" data-value="Для покупки карты, пожалуйста" data-translation="Для покупки карти, будь ласка" data-type="trSpan">Для покупки карти, будь ласка</ya-tr-span></i><ya-tr-span data-index="15-0" data-value="," data-translation="," data-type="trSpan">,</ya-tr-span><i><ya-tr-span data-index="15-0" data-value=" заполните форму " data-translation=" заповніть форму " data-type="trSpan"> заповніть форму </ya-tr-span><span class="form-right-label"></span> <span class="form-below-label"></span></i>
+                        <button type="submit" class="buy-button" id="button-submit"><ya-tr-span data-index="15-0" data-value="Отправить" data-translation="Відправити" data-type="trSpan">Відправити</ya-tr-span></button>
+
+                     </div>
+                  </div>
+                  <div class="info-content">
+                     <div class="content-block" style="height: 340px;">
+                        <div class="section-title">
+                           <span><ya-tr-span data-index="16-0" data-value="Про карту" data-translation="Про карту" data-type="trSpan">Про карту</ya-tr-span></span><br><ya-tr-span data-index="16-0" data-value="
+ " data-translation="
+ " data-type="trSpan">
+ </ya-tr-span><ya-tr-span data-index="16-1" data-value="это пластиковая карта ТК Буковель, которую можно использовать как многоразовый скипасc, при условии пополнения ее днями катания и прокатом снаряжения. " data-translation="це пластикова карта ТК Буковель, яку можна використовувати як багаторазовий скіпасс, за умови поповнення її днями катання і прокатом спорядження. " data-type="trSpan">це пластикова карта ТК Буковель, яку можна використовувати як багаторазовий скіпасс, за умови поповнення її днями катання і прокатом спорядження. </ya-tr-span><ya-tr-span data-index="16-2" data-value="Карта предоставляет владельцу следующие скидки:
+ " data-translation="Карта надає власнику наступні знижки:
+ " data-type="trSpan">Карта надає власнику наступні знижки:
+ </ya-tr-span></div>
+                        <div class="info" style="height: 340px;">
+                           
+                           <ul>
+                              <li><ya-tr-span data-index="17-0" data-value="60% на катание и прокат снаряжения при пополнении до 31 августа;
+ " data-translation="60% на катання та прокат спорядження при поповненні до 31 серпня;
+ " data-type="trSpan">60% на катання та прокат спорядження при поповненні до 31 серпня;
+ </ya-tr-span></li>
+                              <li><ya-tr-span data-index="18-0" data-value="50% на катание и прокат снаряжения при пополнении до 30 ноября;
+ " data-translation="50% на катання та прокат спорядження при поповненні до 30 листопада;
+ " data-type="trSpan">50% на катання та прокат спорядження при поповненні до 30 листопада;
+ </ya-tr-span></li>
+                              <li><ya-tr-span data-index="19-0" data-value="20% на катание и прокат снаряжения при пополнении с 1 декабря до конца сезона (на скипаcсы сроком действия до полного использования);" data-translation="20% на катання та прокат спорядження при поповненні з 1 грудня до кінця сезону (на скіпаси терміном дії до повного використання);" data-type="trSpan">20% на катання та прокат спорядження при поповненні з 1 грудня до кінця сезону (на скіпаси терміном дії до повного використання);</ya-tr-span></li>
+                              <li>20% на проживание в отелях: "Буковель", "Тавель", "Ирис", "Shelter";</li>
+                              <li>15% в сети ресторанов «Carte.L»: Lucky Bull, Filvarok (5 заведений), PLOV, Loungezone Veranda, Ryba Grill, Osteria Italiana, REBRA BBQ, 
+                                 Whisky Bar, SALO, MANGALICA, KOLYBA;
+                              </li>
+                              <li>10% на все услуги в медико-оздоровительном центре «Буковель».
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="content-block" style="height: 340px;">
+                        <div class="section-title">
+                           <span>Стоит знать</span>
+                        </div>
+                        <div class="info" style="height: 340px;">
+                           <ul>
+                              <li>карта Дисконтная программируется  днями катания и прокатом снаряжения, которые действительны до их полного использования в течение всего зимнего сезона, кроме периода;</li>
+                              <li>для проката снаряжения предусмотрено использование одной взрослой и одной детской позиции в день;</li>
+                              <li>клубная карта является персонифицированной и не может использоваться другими лицами. Персональные данные владельца сохраняются в базе данных ТК Буковель;</li>
+                              <li>дополнительные (акционные) скидки не суммируются;</li>
+                              <li>срок действия карты - 3 года с момента покупки. После пролонгации (продления) за 50% от стоимости карты, срок ее действия продлевается на последующие три года.</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="user-form pull-left">
+                  <svg class="icon icon--close">
+                     <use xlink:href="#icon--close"></use>
+                  </svg>
+                  <div class="form">
+                     <div class="form__header">
+                        <span class="title"><ya-tr-span data-index="20-0" data-value="Идентификация" data-translation="Ідентифікація" data-type="trSpan">Ідентифікація</ya-tr-span></span>
+                        <span class="pull-right card-number"><ya-tr-span data-index="20-0" data-value="Карта 1" data-translation="Карта 1" data-type="trSpan">Карта 1</ya-tr-span><span class="color-gray"><ya-tr-span data-index="20-0" data-value="/1" data-translation="/1" data-type="trSpan">/1</ya-tr-span></span></span>
+                     </div>
+                     
+                     <div class="form__body" id="ident">
+
+                        <div class="card__header">
+                                      <span class="card__download-text"><ya-tr-span data-index="21-0" data-value="Аватар" data-translation="Аватар" data-type="trSpan">Аватар</ya-tr-span></span>
+                                      <div class="form__field">
+                                         <input type="file" name="photo" multiple="" accept="image/*,image/jpeg" style="font-size: x-small;" required="">
+                                      </div>
+                                   </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input" required="" name="user-name" placeholder="Ім'я" value="" id="input-option323">
+                           </div>
+                           <div class="form__field">                                  
+                              <input class="form__input" required="" name="user-surname" placeholder="Прізвище" value="" id="input-option324">
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input type="tel" class="form__input phone-mask" placeholder="Введіть номер" name="phone" style=" padding-right: 70px;!important;" value="" id="input-option328" required="">
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input" type="email" name="e-mail" placeholder="E-mail" value="" id="input-option320" required="">
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input" name="street" placeholder="Вулиця" value="" id="input-option326" required="">
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input building" name="house" placeholder="Будинок" value="" id="input-option322" required="">
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input flat" name="room" placeholder="Квартира" required="" value="" id="input-option321">
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input city " name="city" placeholder="Місто" value="" id="input-option318" required="">
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input index" name="post-index" placeholder="Поштовий індекс" value="" id="input-option327" required="">
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input input_date" name="birthday" placeholder="День народження (ДД.ММ.РРРР)" value="" id="input-option426" required="" data-mask="00.00.0000">
+                           </div>
+                           <div class="form__field">
+                              <select class="form__input" name="sex" required="" id="input-option425">
+                                 <option disabled=""><ya-tr-span data-index="22-0" data-value="Пол" data-translation="Підлога" data-type="trSpan">Підлога</ya-tr-span></option>
+                                 <option value="male"><ya-tr-span data-index="23-0" data-value="Мужской" data-translation="Чоловічий" data-type="trSpan">Чоловічий</ya-tr-span></option>
+                                 <option value="female"><ya-tr-span data-index="24-0" data-value="Женский" data-translation="Жіночий" data-type="trSpan">Жіночий</ya-tr-span></option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <select class="form__input" name="country" required="" id="input-option429">
+                                          <option disabled=""><ya-tr-span data-index="25-0" data-value="Choose Country" data-translation="Choose Country" data-type="trSpan">Choose Country</ya-tr-span></option>
+                                          <option value="+93"><ya-tr-span data-index="26-0" data-value="Afghanistan" data-translation="Afghanistan" data-type="trSpan">Afghanistan</ya-tr-span></option>
+                                          <option value="+355"><ya-tr-span data-index="27-0" data-value="Albania" data-translation="Albania" data-type="trSpan">Albania</ya-tr-span></option>
+                                          <option value="+21"><ya-tr-span data-index="28-0" data-value="Algeria" data-translation="Algeria" data-type="trSpan">Algeria</ya-tr-span></option>
+                                          <option value="+684"><ya-tr-span data-index="29-0" data-value="American Samoa" data-translation="American Samoa" data-type="trSpan">American Samoa</ya-tr-span></option>
+                                          <option value="+376"><ya-tr-span data-index="30-0" data-value="Andorra" data-translation="Andorra" data-type="trSpan">Andorra</ya-tr-span></option>
+                                          <option value="+244"><ya-tr-span data-index="31-0" data-value="Angola" data-translation="Angola" data-type="trSpan">Angola</ya-tr-span></option>
+                                          <option value="+1-264"><ya-tr-span data-index="32-0" data-value="Anguilla" data-translation="Anguilla" data-type="trSpan">Anguilla</ya-tr-span></option>
+                                          <option value="+1-268"><ya-tr-span data-index="33-0" data-value="Antigua and Barbuda" data-translation="Antigua and Barbuda" data-type="trSpan">Antigua and Barbuda</ya-tr-span></option>
+                                          <option value="+374"><ya-tr-span data-index="34-0" data-value="Armenia" data-translation="Armenia" data-type="trSpan">Armenia</ya-tr-span></option>
+                                          <option value="+54"><ya-tr-span data-index="35-0" data-value="Argentina" data-translation="Argentina" data-type="trSpan">Argentina</ya-tr-span></option>
+                                          <option value="+61"><ya-tr-span data-index="36-0" data-value="Australia" data-translation="Australia" data-type="trSpan">Australia</ya-tr-span></option>
+                                          <option value="+43"><ya-tr-span data-index="37-0" data-value="Austria" data-translation="Austria" data-type="trSpan">Austria</ya-tr-span></option>
+                                          <option value="+994"><ya-tr-span data-index="38-0" data-value="Azerbaijan" data-translation="Azerbaijan" data-type="trSpan">Azerbaijan</ya-tr-span></option>
+                                          <option value="+1-242"><ya-tr-span data-index="39-0" data-value="Bahamas" data-translation="Bahamas" data-type="trSpan">Bahamas</ya-tr-span></option>
+                                          <option value="+973"><ya-tr-span data-index="40-0" data-value="Bahrain" data-translation="Bahrain" data-type="trSpan">Bahrain</ya-tr-span></option>
+                                          <option value="+880"><ya-tr-span data-index="41-0" data-value="Bangladesh" data-translation="Bangladesh" data-type="trSpan">Bangladesh</ya-tr-span></option>
+                                          <option value="+1-246"><ya-tr-span data-index="42-0" data-value="Barbados" data-translation="Barbados" data-type="trSpan">Barbados</ya-tr-span></option>
+                                          <option value="+375"><ya-tr-span data-index="43-0" data-value="Belarus" data-translation="Belarus" data-type="trSpan">Belarus</ya-tr-span></option>
+                                          <option value="+32"><ya-tr-span data-index="44-0" data-value="Belgium" data-translation="Belgium" data-type="trSpan">Belgium</ya-tr-span></option>
+                                          <option value="+501"><ya-tr-span data-index="45-0" data-value="Belize" data-translation="Belize" data-type="trSpan">Belize</ya-tr-span></option>
+                                          <option value="+229"><ya-tr-span data-index="46-0" data-value="Benin" data-translation="Benin" data-type="trSpan">Benin</ya-tr-span></option>
+                                          <option value="+1-441"><ya-tr-span data-index="47-0" data-value="Bermuda" data-translation="Bermuda" data-type="trSpan">Bermuda</ya-tr-span></option>
+                                          <option value="+591"><ya-tr-span data-index="48-0" data-value="Bolivia" data-translation="Bolivia" data-type="trSpan">Bolivia</ya-tr-span></option>
+                                          <option value="+387"><ya-tr-span data-index="49-0" data-value="Bosnia and Herzegovina" data-translation="Bosnia and Herzegovina" data-type="trSpan">Bosnia and Herzegovina</ya-tr-span></option>
+                                          <option value="+267"><ya-tr-span data-index="50-0" data-value="Botswana" data-translation="Botswana" data-type="trSpan">Botswana</ya-tr-span></option>
+                                          <option value="+55"><ya-tr-span data-index="51-0" data-value="Brazil" data-translation="Brazil" data-type="trSpan">Brazil</ya-tr-span></option>
+                                          <option value="+1-284"><ya-tr-span data-index="52-0" data-value="British Virgin Islands" data-translation="British Virgin Islands" data-type="trSpan">British Virgin Islands</ya-tr-span></option>
+                                          <option value="+673"><ya-tr-span data-index="53-0" data-value="Brunei Darusalaam" data-translation="Brunei Darusalaam" data-type="trSpan">Brunei Darusalaam</ya-tr-span></option>
+                                          <option value="+359"><ya-tr-span data-index="54-0" data-value="Bulgaria" data-translation="Bulgaria" data-type="trSpan">Bulgaria</ya-tr-span></option>
+                                          <option value="+226"><ya-tr-span data-index="55-0" data-value="Burkina Faso" data-translation="Burkina Faso" data-type="trSpan">Burkina Faso</ya-tr-span></option>
+                                          <option value="+257"><ya-tr-span data-index="56-0" data-value="Burundi" data-translation="Burundi" data-type="trSpan">Burundi</ya-tr-span></option>
+                                          <option value="+855"><ya-tr-span data-index="57-0" data-value="Cambodia" data-translation="Cambodia" data-type="trSpan">Cambodia</ya-tr-span></option>
+                                          <option value="+237"><ya-tr-span data-index="58-0" data-value="Cameroon" data-translation="Cameroon" data-type="trSpan">Cameroon</ya-tr-span></option>
+                                          <option value="+1"><ya-tr-span data-index="59-0" data-value="Canada" data-translation="Canada" data-type="trSpan">Canada</ya-tr-span></option>
+                                          <option value="+238"><ya-tr-span data-index="60-0" data-value="Cape Verde" data-translation="Cape Verde" data-type="trSpan">Cape Verde</ya-tr-span></option>
+                                          <option value="+1-345"><ya-tr-span data-index="61-0" data-value="Cayman Islands" data-translation="Cayman Islands" data-type="trSpan">Cayman Islands</ya-tr-span></option>
+                                          <option value="+236"><ya-tr-span data-index="62-0" data-value="Central African Republic" data-translation="Central African Republic" data-type="trSpan">Central African Republic</ya-tr-span></option>
+                                          <option value="+235"><ya-tr-span data-index="63-0" data-value="Chad" data-translation="Chad" data-type="trSpan">Chad</ya-tr-span></option>
+                                          <option value="+56"><ya-tr-span data-index="64-0" data-value="Chile" data-translation="Chile" data-type="trSpan">Chile</ya-tr-span></option>
+                                          <option value="+86"><ya-tr-span data-index="65-0" data-value="China" data-translation="China" data-type="trSpan">China</ya-tr-span></option>
+                                          <option value="+672"><ya-tr-span data-index="66-0" data-value="Christmas Island" data-translation="Christmas Island" data-type="trSpan">Christmas Island</ya-tr-span></option>
+                                          <option value="+672"><ya-tr-span data-index="67-0" data-value="Cocos Islands" data-translation="Cocos Islands" data-type="trSpan">Cocos Islands</ya-tr-span></option>
+                                          <option value="+57"><ya-tr-span data-index="68-0" data-value="Colombia" data-translation="Colombia" data-type="trSpan">Colombia</ya-tr-span></option>
+                                          <option value="+1-670"><ya-tr-span data-index="69-0" data-value="Commonwealth of the Northern Mariana Islands" data-translation="Commonwealth of the Northern Mariana Islands" data-type="trSpan">Commonwealth of the Northern Mariana Islands</ya-tr-span></option>
+                                          <option value="+269"><ya-tr-span data-index="70-0" data-value="Comoros and Mayotte Island" data-translation="Comoros and Mayotte Island" data-type="trSpan">Comoros and Mayotte Island</ya-tr-span></option>
+                                          <option value="+242"><ya-tr-span data-index="71-0" data-value="Congo" data-translation="Congo" data-type="trSpan">Congo</ya-tr-span></option>
+                                          <option value="+682"><ya-tr-span data-index="72-0" data-value="Cook Islands" data-translation="Cook Islands" data-type="trSpan">Cook Islands</ya-tr-span></option>
+                                          <option value="+506"><ya-tr-span data-index="73-0" data-value="Costa Rica" data-translation="Costa Rica" data-type="trSpan">Costa Rica</ya-tr-span></option>
+                                          <option value="+385"><ya-tr-span data-index="74-0" data-value="Croatia" data-translation="Croatia" data-type="trSpan">Croatia</ya-tr-span></option>
+                                          <option value="+53"><ya-tr-span data-index="75-0" data-value="Cuba" data-translation="Cuba" data-type="trSpan">Cuba</ya-tr-span></option>
+                                          <option value="+357"><ya-tr-span data-index="76-0" data-value="Cyprus" data-translation="Cyprus" data-type="trSpan">Cyprus</ya-tr-span></option>
+                                          <option value="+420"><ya-tr-span data-index="77-0" data-value="Czech Republic" data-translation="Czech Republic" data-type="trSpan">Czech Republic</ya-tr-span></option>
+                                          <option value="+45"><ya-tr-span data-index="78-0" data-value="Denmark" data-translation="Denmark" data-type="trSpan">Denmark</ya-tr-span></option>
+                                          <option value="+246"><ya-tr-span data-index="79-0" data-value="Diego Garcia" data-translation="Diego Garcia" data-type="trSpan">Diego Garcia</ya-tr-span></option>
+                                          <option value="+253"><ya-tr-span data-index="80-0" data-value="Djibouti" data-translation="Djibouti" data-type="trSpan">Djibouti</ya-tr-span></option>
+                                          <option value="+1-767"><ya-tr-span data-index="81-0" data-value="Dominica" data-translation="Dominica" data-type="trSpan">Dominica</ya-tr-span></option>
+                                          <option value="+1-809"><ya-tr-span data-index="82-0" data-value="Dominican Republic" data-translation="Dominican Republic" data-type="trSpan">Dominican Republic</ya-tr-span></option>
+                                          <option value="+62"><ya-tr-span data-index="83-0" data-value="East Timor" data-translation="East Timor" data-type="trSpan">East Timor</ya-tr-span></option>
+                                          <option value="+593"><ya-tr-span data-index="84-0" data-value="Ecuador" data-translation="Ecuador" data-type="trSpan">Ecuador</ya-tr-span></option>
+                                          <option value="+20"><ya-tr-span data-index="85-0" data-value="Egypt" data-translation="Egypt" data-type="trSpan">Egypt</ya-tr-span></option>
+                                          <option value="+503"><ya-tr-span data-index="86-0" data-value="El Salvador" data-translation="El Salvador" data-type="trSpan">El Salvador</ya-tr-span></option>
+                                          <option value="+240"><ya-tr-span data-index="87-0" data-value="Equatorial Guinea" data-translation="Equatorial Guinea" data-type="trSpan">Equatorial Guinea</ya-tr-span></option>
+                                          <option value="+372"><ya-tr-span data-index="88-0" data-value="Estonia" data-translation="Estonia" data-type="trSpan">Estonia</ya-tr-span></option>
+                                          <option value="+251"><ya-tr-span data-index="89-0" data-value="Ethiopia" data-translation="Ethiopia" data-type="trSpan">Ethiopia</ya-tr-span></option>
+                                          <option value="+298"><ya-tr-span data-index="90-0" data-value="Faroe Islands" data-translation="Faroe Islands" data-type="trSpan">Faroe Islands</ya-tr-span></option>
+                                          <option value="+500"><ya-tr-span data-index="91-0" data-value="Falkland Islands" data-translation="Falkland Islands" data-type="trSpan">Falkland Islands</ya-tr-span></option>
+                                          <option value="+679"><ya-tr-span data-index="92-0" data-value="Fiji" data-translation="Fiji" data-type="trSpan">Fiji</ya-tr-span></option>
+                                          <option value="+358"><ya-tr-span data-index="93-0" data-value="Finland" data-translation="Finland" data-type="trSpan">Finland</ya-tr-span></option>
+                                          <option value="+33"><ya-tr-span data-index="94-0" data-value="France" data-translation="France" data-type="trSpan">France</ya-tr-span></option>
+                                          <option value="+590"><ya-tr-span data-index="95-0" data-value="French Antilles" data-translation="French Antilles" data-type="trSpan">French Antilles</ya-tr-span></option>
+                                          <option value="+594"><ya-tr-span data-index="96-0" data-value="French Guiana" data-translation="French Guiana" data-type="trSpan">French Guiana</ya-tr-span></option>
+                                          <option value="+689"><ya-tr-span data-index="97-0" data-value="French Polynesia" data-translation="French Polynesia" data-type="trSpan">French Polynesia</ya-tr-span></option>
+                                          <option value="+241"><ya-tr-span data-index="98-0" data-value="Gabon" data-translation="Gabon" data-type="trSpan">Gabon</ya-tr-span></option>
+                                          <option value="+220"><ya-tr-span data-index="99-0" data-value="Gambia" data-translation="Gambia" data-type="trSpan">Gambia</ya-tr-span></option>
+                                          <option value="+995"><ya-tr-span data-index="100-0" data-value="Georgia" data-translation="Georgia" data-type="trSpan">Georgia</ya-tr-span></option>
+                                          <option value="+49"><ya-tr-span data-index="101-0" data-value="Germany" data-translation="Germany" data-type="trSpan">Germany</ya-tr-span></option>
+                                          <option value="+233"><ya-tr-span data-index="102-0" data-value="Ghana" data-translation="Ghana" data-type="trSpan">Ghana</ya-tr-span></option>
+                                          <option value="+350"><ya-tr-span data-index="103-0" data-value="Gibraltar" data-translation="Gibraltar" data-type="trSpan">Gibraltar</ya-tr-span></option>
+                                          <option value="+30"><ya-tr-span data-index="104-0" data-value="Greece" data-translation="Greece" data-type="trSpan">Greece</ya-tr-span></option>
+                                          <option value="+299"><ya-tr-span data-index="105-0" data-value="Greenland" data-translation="Greenland" data-type="trSpan">Greenland</ya-tr-span></option>
+                                          <option value="+1-473"><ya-tr-span data-index="106-0" data-value="Grenada" data-translation="Grenada" data-type="trSpan">Grenada</ya-tr-span></option>
+                                          <option value="+671"><ya-tr-span data-index="107-0" data-value="Guam" data-translation="Guam" data-type="trSpan">Guam</ya-tr-span></option>
+                                          <option value="+502"><ya-tr-span data-index="108-0" data-value="Guatemala" data-translation="Guatemala" data-type="trSpan">Guatemala</ya-tr-span></option>
+                                          <option value="+224"><ya-tr-span data-index="109-0" data-value="Guinea" data-translation="Guinea" data-type="trSpan">Guinea</ya-tr-span></option>
+                                          <option value="+245"><ya-tr-span data-index="110-0" data-value="Guinea-Bissau" data-translation="Guinea-Bissau" data-type="trSpan">Guinea-Bissau</ya-tr-span></option>
+                                          <option value="+592"><ya-tr-span data-index="111-0" data-value="Guyana" data-translation="Guyana" data-type="trSpan">Guyana</ya-tr-span></option>
+                                          <option value="+509"><ya-tr-span data-index="112-0" data-value="Haiti" data-translation="Haiti" data-type="trSpan">Haiti</ya-tr-span></option>
+                                          <option value="+504"><ya-tr-span data-index="113-0" data-value="Honduras" data-translation="Honduras" data-type="trSpan">Honduras</ya-tr-span></option>
+                                          <option value="+852"><ya-tr-span data-index="114-0" data-value="Hong Kong" data-translation="Hong Kong" data-type="trSpan">Hong Kong</ya-tr-span></option>
+                                          <option value="+36"><ya-tr-span data-index="115-0" data-value="Hungary" data-translation="Hungary" data-type="trSpan">Hungary</ya-tr-span></option>
+                                          <option value="+354"><ya-tr-span data-index="116-0" data-value="Iceland" data-translation="Iceland" data-type="trSpan">Iceland</ya-tr-span></option>
+                                          <option value="+91"><ya-tr-span data-index="117-0" data-value="India" data-translation="India" data-type="trSpan">India</ya-tr-span></option>
+                                          <option value="+62"><ya-tr-span data-index="118-0" data-value="Indonesia" data-translation="Indonesia" data-type="trSpan">Indonesia</ya-tr-span></option>
+                                          <option value="+98"><ya-tr-span data-index="119-0" data-value="Iran" data-translation="Iran" data-type="trSpan">Iran</ya-tr-span></option>
+                                          <option value="+964"><ya-tr-span data-index="120-0" data-value="Iraq" data-translation="Iraq" data-type="trSpan">Iraq</ya-tr-span></option>
+                                          <option value="+353"><ya-tr-span data-index="121-0" data-value="Irish Republic" data-translation="Irish Republic" data-type="trSpan">Irish Republic</ya-tr-span></option>
+                                          <option value="+972"><ya-tr-span data-index="122-0" data-value="Israel" data-translation="Israel" data-type="trSpan">Israel</ya-tr-span></option>
+                                          <option value="+39"><ya-tr-span data-index="123-0" data-value="Italy" data-translation="Italy" data-type="trSpan">Italy</ya-tr-span></option>
+                                          <option value="+225"><ya-tr-span data-index="124-0" data-value="Ivory Coast" data-translation="Ivory Coast" data-type="trSpan">Ivory Coast</ya-tr-span></option>
+                                          <option value="+1-876"><ya-tr-span data-index="125-0" data-value="Jamaica" data-translation="Jamaica" data-type="trSpan">Jamaica</ya-tr-span></option>
+                                          <option value="+81"><ya-tr-span data-index="126-0" data-value="Japan" data-translation="Japan" data-type="trSpan">Japan</ya-tr-span></option>
+                                          <option value="+962"><ya-tr-span data-index="127-0" data-value="Jordan" data-translation="Jordan" data-type="trSpan">Jordan</ya-tr-span></option>
+                                          <option value="+7"><ya-tr-span data-index="128-0" data-value="Kazakhstan" data-translation="Kazakhstan" data-type="trSpan">Kazakhstan</ya-tr-span></option>
+                                          <option value="+254"><ya-tr-span data-index="129-0" data-value="Kenya" data-translation="Kenya" data-type="trSpan">Kenya</ya-tr-span></option>
+                                          <option value="+686"><ya-tr-span data-index="130-0" data-value="Kiribati Republic" data-translation="Kiribati Republic" data-type="trSpan">Kiribati Republic</ya-tr-span></option>
+                                          <option value="+996"><ya-tr-span data-index="131-0" data-value="Kirghizia" data-translation="Kirghizia" data-type="trSpan">Kirghizia</ya-tr-span></option>
+                                          <option value="+965"><ya-tr-span data-index="132-0" data-value="Kuwait" data-translation="Kuwait" data-type="trSpan">Kuwait</ya-tr-span></option>
+                                          <option value="+856"><ya-tr-span data-index="133-0" data-value="Laos" data-translation="Laos" data-type="trSpan">Laos</ya-tr-span></option>
+                                          <option value="+371"><ya-tr-span data-index="134-0" data-value="Latvia" data-translation="Latvia" data-type="trSpan">Latvia</ya-tr-span></option>
+                                          <option value="+961"><ya-tr-span data-index="135-0" data-value="Lebanon" data-translation="Lebanon" data-type="trSpan">Lebanon</ya-tr-span></option>
+                                          <option value="+266"><ya-tr-span data-index="136-0" data-value="Lesotho" data-translation="Lesotho" data-type="trSpan">Lesotho</ya-tr-span></option>
+                                          <option value="+231"><ya-tr-span data-index="137-0" data-value="Liberia" data-translation="Liberia" data-type="trSpan">Liberia</ya-tr-span></option>
+                                          <option value="+21"><ya-tr-span data-index="138-0" data-value="Libya" data-translation="Libya" data-type="trSpan">Libya</ya-tr-span></option>
+                                          <option value="+41"><ya-tr-span data-index="139-0" data-value="Liechtenstein" data-translation="Liechtenstein" data-type="trSpan">Liechtenstein</ya-tr-span></option>
+                                          <option value="+370"><ya-tr-span data-index="140-0" data-value="Lithuania" data-translation="Lithuania" data-type="trSpan">Lithuania</ya-tr-span></option>
+                                          <option value="+352"><ya-tr-span data-index="141-0" data-value="Luxembourg" data-translation="Luxembourg" data-type="trSpan">Luxembourg</ya-tr-span></option>
+                                          <option value="+853"><ya-tr-span data-index="142-0" data-value="Macao" data-translation="Macao" data-type="trSpan">Macao</ya-tr-span></option>
+                                          <option value="+389"><ya-tr-span data-index="143-0" data-value="Macedonia" data-translation="Macedonia" data-type="trSpan">Macedonia</ya-tr-span></option>
+                                          <option value="+261"><ya-tr-span data-index="144-0" data-value="Madagascar" data-translation="Madagascar" data-type="trSpan">Madagascar</ya-tr-span></option>
+                                          <option value="+265"><ya-tr-span data-index="145-0" data-value="Malawi" data-translation="Malawi" data-type="trSpan">Malawi</ya-tr-span></option>
+                                          <option value="+60"><ya-tr-span data-index="146-0" data-value="Malaysia" data-translation="Malaysia" data-type="trSpan">Malaysia</ya-tr-span></option>
+                                          <option value="+960"><ya-tr-span data-index="147-0" data-value="Maldives" data-translation="Maldives" data-type="trSpan">Maldives</ya-tr-span></option>
+                                          <option value="+223"><ya-tr-span data-index="148-0" data-value="Mali" data-translation="Mali" data-type="trSpan">Mali</ya-tr-span></option>
+                                          <option value="+356"><ya-tr-span data-index="149-0" data-value="Malta" data-translation="Malta" data-type="trSpan">Malta</ya-tr-span></option>
+                                          <option value="+692"><ya-tr-span data-index="150-0" data-value="Marshall Islands" data-translation="Marshall Islands" data-type="trSpan">Marshall Islands</ya-tr-span></option>
+                                          <option value="+596"><ya-tr-span data-index="151-0" data-value="Martinique" data-translation="Martinique" data-type="trSpan">Martinique</ya-tr-span></option>
+                                          <option value="+222"><ya-tr-span data-index="152-0" data-value="Mauritania" data-translation="Mauritania" data-type="trSpan">Mauritania</ya-tr-span></option>
+                                          <option value="+230"><ya-tr-span data-index="153-0" data-value="Mauritius" data-translation="Mauritius" data-type="trSpan">Mauritius</ya-tr-span></option>
+                                          <option value="+52"><ya-tr-span data-index="154-0" data-value="Mexico" data-translation="Mexico" data-type="trSpan">Mexico</ya-tr-span></option>
+                                          <option value="+691"><ya-tr-span data-index="155-0" data-value="Micronesia" data-translation="Micronesia" data-type="trSpan">Micronesia</ya-tr-span></option>
+                                          <option value="+377"><ya-tr-span data-index="156-0" data-value="Monaco" data-translation="Monaco" data-type="trSpan">Monaco</ya-tr-span></option>
+                                          <option value="+976"><ya-tr-span data-index="157-0" data-value="Mongolia" data-translation="Mongolia" data-type="trSpan">Mongolia</ya-tr-span></option>
+                                          <option value="+1-664"><ya-tr-span data-index="158-0" data-value="Montserrat" data-translation="Montserrat" data-type="trSpan">Montserrat</ya-tr-span></option>
+                                          <option value="+212"><ya-tr-span data-index="159-0" data-value="Morocco" data-translation="Morocco" data-type="trSpan">Morocco</ya-tr-span></option>
+                                          <option value="+258"><ya-tr-span data-index="160-0" data-value="Mozambique" data-translation="Mozambique" data-type="trSpan">Mozambique</ya-tr-span></option>
+                                          <option value="+95"><ya-tr-span data-index="161-0" data-value="Myanmar" data-translation="Myanmar" data-type="trSpan">Myanmar</ya-tr-span></option>
+                                          <option value="+264"><ya-tr-span data-index="162-0" data-value="Namibia" data-translation="Namibia" data-type="trSpan">Namibia</ya-tr-span></option>
+                                          <option value="+674"><ya-tr-span data-index="163-0" data-value="Nauru" data-translation="Nauru" data-type="trSpan">Nauru</ya-tr-span></option>
+                                          <option value="+977"><ya-tr-span data-index="164-0" data-value="Nepal" data-translation="Nepal" data-type="trSpan">Nepal</ya-tr-span></option>
+                                          <option value="+31"><ya-tr-span data-index="165-0" data-value="Netherlands" data-translation="Netherlands" data-type="trSpan">Netherlands</ya-tr-span></option>
+                                          <option value="+599"><ya-tr-span data-index="166-0" data-value="Netherlands Antilles" data-translation="Netherlands Antilles" data-type="trSpan">Netherlands Antilles</ya-tr-span></option>
+                                          <option value="+687"><ya-tr-span data-index="167-0" data-value="New Caledonia" data-translation="New Caledonia" data-type="trSpan">New Caledonia</ya-tr-span></option>
+                                          <option value="+64"><ya-tr-span data-index="168-0" data-value="New Zealand" data-translation="New Zealand" data-type="trSpan">New Zealand</ya-tr-span></option>
+                                          <option value="+505"><ya-tr-span data-index="169-0" data-value="Nicaragua" data-translation="Nicaragua" data-type="trSpan">Nicaragua</ya-tr-span></option>
+                                          <option value="+227"><ya-tr-span data-index="170-0" data-value="Niger" data-translation="Niger" data-type="trSpan">Niger</ya-tr-span></option>
+                                          <option value="+234"><ya-tr-span data-index="171-0" data-value="Nigeria" data-translation="Nigeria" data-type="trSpan">Nigeria</ya-tr-span></option>
+                                          <option value="+683"><ya-tr-span data-index="172-0" data-value="Niue" data-translation="Niue" data-type="trSpan">Niue</ya-tr-span></option>
+                                          <option value="+672"><ya-tr-span data-index="173-0" data-value="Norfolk Island" data-translation="Norfolk Island" data-type="trSpan">Norfolk Island</ya-tr-span></option>
+                                          <option value="+850"><ya-tr-span data-index="174-0" data-value="North Korea" data-translation="North Korea" data-type="trSpan">North Korea</ya-tr-span></option>
+                                          <option value="+967"><ya-tr-span data-index="175-0" data-value="North Yemen" data-translation="North Yemen" data-type="trSpan">North Yemen</ya-tr-span></option>
+                                          <option value="+670"><ya-tr-span data-index="176-0" data-value="Northern Mariana Islands" data-translation="Northern Mariana Islands" data-type="trSpan">Northern Mariana Islands</ya-tr-span></option>
+                                          <option value="+47"><ya-tr-span data-index="177-0" data-value="Norway" data-translation="Norway" data-type="trSpan">Norway</ya-tr-span></option>
+                                          <option value="+968"><ya-tr-span data-index="178-0" data-value="Oman" data-translation="Oman" data-type="trSpan">Oman</ya-tr-span></option>
+                                          <option value="+92"><ya-tr-span data-index="179-0" data-value="Pakistan" data-translation="Pakistan" data-type="trSpan">Pakistan</ya-tr-span></option>
+                                          <option value="+507"><ya-tr-span data-index="180-0" data-value="Panama" data-translation="Panama" data-type="trSpan">Panama</ya-tr-span></option>
+                                          <option value="+675"><ya-tr-span data-index="181-0" data-value="Papua New Guinea" data-translation="Papua New Guinea" data-type="trSpan">Papua New Guinea</ya-tr-span></option>
+                                          <option value="+595"><ya-tr-span data-index="182-0" data-value="Paraguay" data-translation="Paraguay" data-type="trSpan">Paraguay</ya-tr-span></option>
+                                          <option value="+51"><ya-tr-span data-index="183-0" data-value="Peru" data-translation="Peru" data-type="trSpan">Peru</ya-tr-span></option>
+                                          <option value="+63"><ya-tr-span data-index="184-0" data-value="Philippines" data-translation="Philippines" data-type="trSpan">Philippines</ya-tr-span></option>
+                                          <option value="+48"><ya-tr-span data-index="185-0" data-value="Poland" data-translation="Poland" data-type="trSpan">Poland</ya-tr-span></option>
+                                          <option value="+351"><ya-tr-span data-index="186-0" data-value="Portugal" data-translation="Portugal" data-type="trSpan">Portugal</ya-tr-span></option>
+                                          <option value="+1-787"><ya-tr-span data-index="187-0" data-value="Puerto Rico" data-translation="Puerto Rico" data-type="trSpan">Puerto Rico</ya-tr-span></option>
+                                          <option value="+974"><ya-tr-span data-index="188-0" data-value="Qatar" data-translation="Qatar" data-type="trSpan">Qatar</ya-tr-span></option>
+                                          <option value="+378"><ya-tr-span data-index="189-0" data-value="Republic of San Marino" data-translation="Republic of San Marino" data-type="trSpan">Republic of San Marino</ya-tr-span></option>
+                                          <option value="+262"><ya-tr-span data-index="190-0" data-value="Reunion" data-translation="Reunion" data-type="trSpan">Reunion</ya-tr-span></option>
+                                          <option value="+40"><ya-tr-span data-index="191-0" data-value="Romania" data-translation="Romania" data-type="trSpan">Romania</ya-tr-span></option>
+                                          <option value="+7"><ya-tr-span data-index="192-0" data-value="Russia" data-translation="Russia" data-type="trSpan">Russia</ya-tr-span></option>
+                                          <option value="+250"><ya-tr-span data-index="193-0" data-value="Rwandese Republic" data-translation="Rwandese Republic" data-type="trSpan">Rwandese Republic</ya-tr-span></option>
+                                          <option value="+247"><ya-tr-span data-index="194-0" data-value="Saint Helena and Ascension Island" data-translation="Saint Helena and Ascension Island" data-type="trSpan">Saint Helena and Ascension Island</ya-tr-span></option>
+                                          <option value="+508"><ya-tr-span data-index="195-0" data-value="Saint Pierre et Miquelon" data-translation="Saint Pierre et Miquelon" data-type="trSpan">Saint Pierre et Miquelon</ya-tr-span></option>
+                                          <option value="+39"><ya-tr-span data-index="196-0" data-value="San Marino" data-translation="San Marino" data-type="trSpan">San Marino</ya-tr-span></option>
+                                          <option value="+239"><ya-tr-span data-index="197-0" data-value="Sao Tome e Principe" data-translation="Sao Tome e Principe" data-type="trSpan">Sao Tome e Principe</ya-tr-span></option>
+                                          <option value="+966"><ya-tr-span data-index="198-0" data-value="Saudi Arabia" data-translation="Saudi Arabia" data-type="trSpan">Saudi Arabia</ya-tr-span></option>
+                                          <option value="+221"><ya-tr-span data-index="199-0" data-value="Senegal" data-translation="Senegal" data-type="trSpan">Senegal</ya-tr-span></option>
+                                          <option value="+248"><ya-tr-span data-index="200-0" data-value="Seychelles" data-translation="Seychelles" data-type="trSpan">Seychelles</ya-tr-span></option>
+                                          <option value="+232"><ya-tr-span data-index="201-0" data-value="Sierra Leone" data-translation="Sierra Leone" data-type="trSpan">Sierra Leone</ya-tr-span></option>
+                                          <option value="+65"><ya-tr-span data-index="202-0" data-value="Singapore" data-translation="Singapore" data-type="trSpan">Singapore</ya-tr-span></option>
+                                          <option value="+421"><ya-tr-span data-index="203-0" data-value="Slovakia" data-translation="Slovakia" data-type="trSpan">Slovakia</ya-tr-span></option>
+                                          <option value="+421"><ya-tr-span data-index="204-0" data-value="Slovakia" data-translation="Slovakia" data-type="trSpan">Slovakia</ya-tr-span></option>
+                                          <option value="+386"><ya-tr-span data-index="205-0" data-value="Slovenia" data-translation="Slovenia" data-type="trSpan">Slovenia</ya-tr-span></option>
+                                          <option value="+677"><ya-tr-span data-index="206-0" data-value="Solomon Islands" data-translation="Solomon Islands" data-type="trSpan">Solomon Islands</ya-tr-span></option>
+                                          <option value="+252"><ya-tr-span data-index="207-0" data-value="Somalia" data-translation="Somalia" data-type="trSpan">Somalia</ya-tr-span></option>
+                                          <option value="+27"><ya-tr-span data-index="208-0" data-value="South Africa" data-translation="South Africa" data-type="trSpan">South Africa</ya-tr-span></option>
+                                          <option value="+82"><ya-tr-span data-index="209-0" data-value="South Korea" data-translation="South Korea" data-type="trSpan">South Korea</ya-tr-span></option>
+                                          <option value="+969"><ya-tr-span data-index="210-0" data-value="South Yemen" data-translation="South Yemen" data-type="trSpan">South Yemen</ya-tr-span></option>
+                                          <option value="+34"><ya-tr-span data-index="211-0" data-value="Spain" data-translation="Spain" data-type="trSpan">Spain</ya-tr-span></option>
+                                          <option value="+94"><ya-tr-span data-index="212-0" data-value="Sri Lanka" data-translation="Sri Lanka" data-type="trSpan">Sri Lanka</ya-tr-span></option>
+                                          <option value="+1-869"><ya-tr-span data-index="213-0" data-value="St." data-translation="St." data-type="trSpan">St.</ya-tr-span><ya-tr-span data-index="213-1" data-value="Kitts and Nevis" data-translation="Кітс and Nevis" data-type="trSpan">Кітс and Nevis</ya-tr-span></option>
+                                          <option value="+1-758"><ya-tr-span data-index="214-0" data-value="St." data-translation="St." data-type="trSpan">St.</ya-tr-span><ya-tr-span data-index="214-1" data-value="Lucia" data-translation="Lucia" data-type="trSpan">Lucia</ya-tr-span></option>
+                                          <option value="+1-784"><ya-tr-span data-index="215-0" data-value="St." data-translation="St." data-type="trSpan">St.</ya-tr-span><ya-tr-span data-index="215-1" data-value="Vincent and the Grenadines" data-translation="Vincent and the Grenadines" data-type="trSpan">Vincent and the Grenadines</ya-tr-span></option>
+                                          <option value="+249"><ya-tr-span data-index="216-0" data-value="Sudan" data-translation="Sudan" data-type="trSpan">Sudan</ya-tr-span></option>
+                                          <option value="+597"><ya-tr-span data-index="217-0" data-value="Suriname" data-translation="Suriname" data-type="trSpan">Suriname</ya-tr-span></option>
+                                          <option value="+47"><ya-tr-span data-index="218-0" data-value="Svalbard and Jan Mayen Islands" data-translation="Svalbard and Jan Mayen Islands" data-type="trSpan">Svalbard and Jan Mayen Islands</ya-tr-span></option>
+                                          <option value="+268"><ya-tr-span data-index="219-0" data-value="Swaziland" data-translation="Swaziland" data-type="trSpan">Swaziland</ya-tr-span></option>
+                                          <option value="+46"><ya-tr-span data-index="220-0" data-value="Sweden" data-translation="Sweden" data-type="trSpan">Sweden</ya-tr-span></option>
+                                          <option value="+41"><ya-tr-span data-index="221-0" data-value="Switzerland" data-translation="Switzerland" data-type="trSpan">Switzerland</ya-tr-span></option>
+                                          <option value="+963"><ya-tr-span data-index="222-0" data-value="Syria" data-translation="Syria" data-type="trSpan">Syria</ya-tr-span></option>
+                                          <option value="+992"><ya-tr-span data-index="223-0" data-value="Tadjikistan" data-translation="Tadjikistan" data-type="trSpan">Tadjikistan</ya-tr-span></option>
+                                          <option value="+886"><ya-tr-span data-index="224-0" data-value="Taiwan" data-translation="Taiwan" data-type="trSpan">Taiwan</ya-tr-span></option>
+                                          <option value="+255"><ya-tr-span data-index="225-0" data-value="Tanzania" data-translation="Tanzania" data-type="trSpan">Tanzania</ya-tr-span></option>
+                                          <option value="+66"><ya-tr-span data-index="226-0" data-value="Thailand" data-translation="Thailand" data-type="trSpan">Thailand</ya-tr-span></option>
+                                          <option value="+228"><ya-tr-span data-index="227-0" data-value="Togolese Republic" data-translation="Togolese Republic" data-type="trSpan">Togolese Republic</ya-tr-span></option>
+                                          <option value="+690"><ya-tr-span data-index="228-0" data-value="Tokelau" data-translation="Tokelau" data-type="trSpan">Tokelau</ya-tr-span></option>
+                                          <option value="+676"><ya-tr-span data-index="229-0" data-value="Tonga" data-translation="Tonga" data-type="trSpan">Tonga</ya-tr-span></option>
+                                          <option value="+1-868"><ya-tr-span data-index="230-0" data-value="Trinidad and Tobago" data-translation="Trinidad and Tobago" data-type="trSpan">Trinidad and Tobago</ya-tr-span></option>
+                                          <option value="+21"><ya-tr-span data-index="231-0" data-value="Tunisia" data-translation="Tunisia" data-type="trSpan">Tunisia</ya-tr-span></option>
+                                          <option value="+90"><ya-tr-span data-index="232-0" data-value="Turkey" data-translation="Turkey" data-type="trSpan">Turkey</ya-tr-span></option>
+                                          <option value="+993"><ya-tr-span data-index="233-0" data-value="Turkmenistan" data-translation="Turkmenistan" data-type="trSpan">Turkmenistan</ya-tr-span></option>
+                                          <option value="+1-649"><ya-tr-span data-index="234-0" data-value="Turks &amp; Caicos Islands" data-translation="Turks &amp; Caicos Islands" data-type="trSpan">Turks &amp; Caicos Islands</ya-tr-span></option>
+                                          <option value="+688"><ya-tr-span data-index="235-0" data-value="Tuvalu" data-translation="Tuvalu" data-type="trSpan">Tuvalu</ya-tr-span></option>
+                                          <option value="+1-340"><ya-tr-span data-index="236-0" data-value="US Virgin Islands" data-translation="US Virgin Islands" data-type="trSpan">US Virgin Islands</ya-tr-span></option>
+                                          <option value="+256"><ya-tr-span data-index="237-0" data-value="Uganda" data-translation="Uganda" data-type="trSpan">Uganda</ya-tr-span></option>
+                                          <option value="+380"><ya-tr-span data-index="238-0" data-value="Ukraine" data-translation="Ukraine" data-type="trSpan">Ukraine</ya-tr-span></option>
+                                          <option value="+971"><ya-tr-span data-index="239-0" data-value="United Arab Emirates" data-translation="United Arab Emirates" data-type="trSpan">United Arab Emirates</ya-tr-span></option>
+                                          <option value="+44"><ya-tr-span data-index="240-0" data-value="United Kingdom" data-translation="United Kingdom" data-type="trSpan">United Kingdom</ya-tr-span></option>
+                                          <option value="+598"><ya-tr-span data-index="241-0" data-value="Uruguay" data-translation="Uruguay" data-type="trSpan">Uruguay</ya-tr-span></option>
+                                          <option value="+1"><ya-tr-span data-index="242-0" data-value="USA" data-translation="USA" data-type="trSpan">USA</ya-tr-span></option>
+                                          <option value="+998"><ya-tr-span data-index="243-0" data-value="Uzbekistan" data-translation="Uzbekistan" data-type="trSpan">Uzbekistan</ya-tr-span></option>
+                                          <option value="+678"><ya-tr-span data-index="244-0" data-value="Vanuatu" data-translation="Vanuatu" data-type="trSpan">Vanuatu</ya-tr-span></option>
+                                          <option value="+39"><ya-tr-span data-index="245-0" data-value="Vatican City" data-translation="Vatican City" data-type="trSpan">Vatican City</ya-tr-span></option>
+                                          <option value="+58"><ya-tr-span data-index="246-0" data-value="Venezuela" data-translation="Venezuela" data-type="trSpan">Venezuela</ya-tr-span></option>
+                                          <option value="+84"><ya-tr-span data-index="247-0" data-value="Vietnam" data-translation="Vietnam" data-type="trSpan">Vietnam</ya-tr-span></option>
+                                          <option value="+681"><ya-tr-span data-index="248-0" data-value="Wallis and Futuna Islands" data-translation="Wallis and Futuna Islands" data-type="trSpan">Wallis and Futuna Islands</ya-tr-span></option>
+                                          <option value="+21"><ya-tr-span data-index="249-0" data-value="Western Sahara" data-translation="Western Sahara" data-type="trSpan">Western Sahara</ya-tr-span></option>
+                                          <option value="+685"><ya-tr-span data-index="250-0" data-value="Western Samoa" data-translation="Western Samoa" data-type="trSpan">Western Samoa</ya-tr-span></option>
+                                          <option value="+381"><ya-tr-span data-index="251-0" data-value="Yugoslavia" data-translation="Yugoslavia" data-type="trSpan">Yugoslavia</ya-tr-span></option>
+                                          <option value="+243"><ya-tr-span data-index="252-0" data-value="Zaire" data-translation="Zaire" data-type="trSpan">Zaire</ya-tr-span></option>
+                                          <option value="+260"><ya-tr-span data-index="253-0" data-value="Zambia" data-translation="Zambia" data-type="trSpan">Zambia</ya-tr-span></option>
+                                          <option value="+263"><ya-tr-span data-index="254-0" data-value="Zimbabwe" data-translation="Zimbabwe" data-type="trSpan">Zimbabwe</ya-tr-span></option>
+                              </select>
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input index" name="area" placeholder="Область" value="" id="input-option327" required=""> 
+                           </div>
+                        </div>
+                  </div>
+                  </div>
+               </div>
+            </div>
+            
+       </form>
+            <div class="avatar-modal">
+               <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">×</button>
+                     <h4 class="modal-title" id="avatar-modal-label"><ya-tr-span data-index="255-0" data-value="Добавить фото" data-translation="Додати фото" data-type="trSpan">Додати фото</ya-tr-span></h4>
+                  </div>
+                  <div class="modal-body">
+                     <div class="avatar-body">
+                        <!-- Upload image and data -->
+                        <div class="avatar-upload">
+                           <input type="hidden" class="avatar-src" name="avatar_src">
+                           <input type="hidden" class="avatar-data" name="avatar_data">
+                           <input type="file" class="avatar-input inputfile inputfile-1" id="avatarInput" name="avatar_file">
+                           <label for="avatarInput">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                 <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                              </svg>
+                              <span><ya-tr-span data-index="256-0" data-value="Получить фото" data-translation="Отримати фото" data-type="trSpan">Отримати фото</ya-tr-span></span>
+                           </label>
+                           <canvas id="c" style="display:none;" class="avatar-input-capture" width="300" height="300"></canvas>
+                        </div>
+                        <div class="video-container" id="VD" style="display: none;">
+                           <video autoplay=""></video>
+                        </div>
+                        <!-- Crop and preview -->
+                        <div class="row">
+                           <div class="col-md-9">
+                              <div class="avatar-wrapper"></div>
+                           </div>
+                           <div class="col-md-3">
+                              <div class="avatar-preview preview-lg"></div>
+                              <div class="avatar-preview preview-md"></div>
+                              <div class="avatar-preview preview-sm"></div>
+                           </div>
+                        </div>
+                        <div class="row avatar-btns">
+                           <div class="col-md-9">
+                              <div class="btn-group">
+                                 <button type="button" class="btn btn-primary" data-method="rotate" data-option="-90" title="Rotate -90 градусів"><ya-tr-span data-index="257-0" data-value="Повернуть влево" data-translation="Повернути вліво" data-type="trSpan">Повернути вліво</ya-tr-span></button>
+                              </div>
+                              <div class="btn-group">
+                                 <button type="button" class="btn btn-primary" data-method="rotate" data-option="90" title="Rotate 90 degrees"><ya-tr-span data-index="258-0" data-value="Повернуть вправо" data-translation="Повернути вправо" data-type="trSpan">Повернути вправо</ya-tr-span></button>
+                              </div>
+                           </div>
+                           <div class="col-md-3">
+                              <button class="btn btn-primary btn-block avatar-save"><ya-tr-span data-index="259-0" data-value="Готово" data-translation="Готово" data-type="trSpan">Готово</ya-tr-span></button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <script src="catalog/view/theme/bukovel/js/main.js"></script> 
+            <script src="catalog/view/theme/bukovel/js/custom-file-input.js"></script> 
+            <script src="catalog/view/theme/bukovel/js/checkout/library/phoneformat/js/intlTelInput.js"></script>  
+            <footer class="footer">
+               <div class="connect">
+                  <h4 class="connect__header">Обратная связь</h4>
+                  <form class="connect__form" action="feedback.php" id="connect" method="POST">
+                     <input required="" class="connect__name" name="feedback_name" placeholder="Ваше имя">
+                     <input class="connect__email" required="" type="email" name="feedback_mail" placeholder="E-mail">
+                     <textarea name="feedback_text" required="" class="connect__question" placeholder="Ваш вопрос"></textarea>
+                     <input class="connect__submit" type="submit" value="ОТПРАВИТЬ">
+                  </form>
+               </div>
+               <div class="info" id="contacts-anchor">
+                  <div class="phones">
+                     <h4 class="phones__header">Телефон</h4>
+                     <ul class="phones__list">
+                        <li class="phones__item">
+                           <svg class="icon icon--phone">
+                              <use xlink:href="#icon--phone"></use>
+                           </svg>
+                           +38 (044) 500-88-18        
+                        </li>
+                        <li class="phones__item">0 800 212-244</li>
+                     </ul>
+                  </div>
+                  <span class="email">
+                     <svg class="icon icon--message">
+                        <use xlink:href="#icon--message"></use>
+                     </svg>
+                     shop_admin@bukovel.com    
+                  </span>
+                  <div class="location">
+                     <h4 class="location__header">Адресс</h4>
+                     <span class="location__address">
+                        <svg class="icon icon--pin">
+                           <use xlink:href="#icon--pin"></use>
+                        </svg>
+                        вул. Сахарова 23 ж, корп. 5 м. Івано-Франківськ, 76019
+                     </span>
+                  </div>
+               </div>
+               <a class="bukovel" href=""><img src="catalog/view/theme/bukovel/images/bukovel_logo.png"></a>
+               <div class="verified"><a class="verified" href="http://tickets.bukovel.com" target="_blank">Баланс скипасса</a></div>
+               <div class="verified"><a class="verified" href=" https://shop.bukovel.info/info&amp;information_id=8">Verified by Visa</a></div>
+               <div class="master-card"><a class="verified" href=" https://shop.bukovel.info/info&amp;information_id=7">MasterCard Secure Code</a></div>
+               <div class="master-card"><a class="verified" href=" https://shop.bukovel.info/info&amp;information_id=6">Оплата и доставка</a></div>
+               <div class="master-card"><a class="verified" href=" https://shop.bukovel.info/info&amp;information_id=3">Правила покупки и использования скипассов</a></div>
+               <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel"></h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                   <div class="modal-body">
+                     <h5>Спасибо, вы оформили заказ. Ожидайте доставку. Номер заказа #</h5><h5 id="orderNum"></h5>
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   </div>
+                 </div>
+               </div>
+            </footer>
+            <div class="modal">
+               <div class="modal__dialog">
+               </div>
+            </div>
+            <link type="text/css" rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-autocomplete/jquery.autocomplete.css">
+            <script src="catalog/view/theme/bukovel/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+            <script src="catalog/view/theme/bukovel/node_modules/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+            <script src="catalog/view/theme/bukovel/node_modules/cropper/dist/cropper.min.js"></script>
+            <script src="catalog/view/theme/bukovel/node_modules/jquery-autocomplete/jquery.autocomplete.js"></script>
+            <script src="catalog/view/theme/bukovel/js/bundle.js"></script>
+            <!-- <script src="catalog/view/theme/bukovel/js/process.js"></script> -->
+            <!-- <script src="catalog/view/theme/bukovel/js/optionQuality.js"></script> -->
+            <script src="catalog/view/theme/bukovel/js/common.js"></script>
+            <script src="catalog/view/theme/bukovel/js/profile.js"></script>
+            <script src="catalog/view/theme/bukovel/js/checkout/library/phoneformat/js/intlTelInput.js"></script> 
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="jquery.maskedinput.min.js"></script>
+            <script>
+              $(document).ready(function(){
+                $(".input_date").mask("99.99.9999");
+                $(".phone-mask").mask("(999)-999-99-99");
+              });
+              var selector = document.getElementById("currencySelector");
+              var firstvalute = selector.value;
+              selector.onchange = function() {
+                             var valute = selector.value;
+                             if (firstvalute == "₴" && valute == "€") {
+                                 $(".uah").attr("style", "display: none;");
+                                 $(".eur").attr("style", "display: relative;");
+                                 $(".uah").removeAttr("name");
+                                 $(".eur").attr("name", "sum;");
+                                 firstvalute = selector.value; 
+                             }
+                             if (firstvalute == "₴" && valute == "$") {
+                                $(".uah").attr("style", "display: none;");
+                                $(".usd").attr("style", "display: relative;");
+                                $(".uah").removeAttr("name");
+                                $(".usd").attr("name", "sum;");
+                                 firstvalute = selector.value; 
+                              }
+                              if (firstvalute == "$" && valute == "₴") {
+                                $(".usd").attr("style", "display: none;");
+                                $(".uah").attr("style", "display: relative;");
+                                $(".usd").removeAttr("name");
+                                $(".uah").attr("name", "sum;");
+                                firstvalute = selector.value;      
+                              }
+                              if (firstvalute == "$" && valute == "€") {
+                                $(".usd").attr("style", "display: none;");
+                                $(".eur").attr("style", "display: relative;");
+                                $(".usd").removeAttr("name");
+                                $(".eur").attr("name", "sum;");
+                                firstvalute = selector.value;      
+                              }
+                              if (firstvalute == "€" && valute == "₴") {
+                                $(".eur").attr("style", "display: none;");
+                                $(".uah").attr("style", "display: relative;");
+                                $(".eur").removeAttr("name");
+                                $(".uah").attr("name", "sum;");
+                                firstvalute = selector.value;      
+                              }
+                                 if (firstvalute == "€" && valute == "$") {
+                                  $(".eur").attr("style", "display: none;");
+                                  $(".usd").attr("style", "display: relative;");
+                                  $(".eur").removeAttr("name");
+                                  $(".usd").attr("name", "sum;");
+                                 firstvalute = selector.value;    
+                              }
+                             }
+                             $("#buy-button").on("click", function(e){
+
+                                  var itemname = $("#button-cart").parent().parent("#ident").find("h3").text();
+                                  var days = $("#button-cart").parent().parent("#ident").find($(".option__discount").attr('name','days')).text();
+                                  var sum = $("#button-cart").parent().parent("#ident").find($(".option__price").attr('name','days')).text();
+                                  var number = $("#button-cart").parent().parent("#ident").find($(".numbers")).val();
+                                  var user_name = $("#button-cart").parent().parent("#ident").find($("input[name='user_name']")).val();
+                                  var user_surname = $("#button-cart").parent().parent("#ident").find($("input[name='user_surname']")).val();
+                                  var country = $("#button-cart").parent().parent("#ident").find($("select[name='country'] option:selected")).val();
+                                  var phone = $("#button-cart").parent().parent("#ident").find($(".phone-mask")).val();
+                                  var sex = $("#button-cart").parent().parent("#ident").find($("select[name='sex'] option:selected")).text();
+                                  var birthday = $("#button-cart").parent().parent("#ident").find($(".form__input.input_date")).val();
+                                  var email = $("#button-cart").parent().parent("#ident").find($("input[name='email']")).val();
+                                  var street = $("#button-cart").parent().parent("#ident").find($("input[name='street']")).val();
+                                  var house = $("#button-cart").parent().parent("#ident").find($("input[name='house']")).val();
+                                  var room = $("#button-cart").parent().parent("#ident").find($("input[name='room']")).val();
+                                  var city = $("#button-cart").parent().parent("#ident").find($("input[name='city']")).val();
+                                  var order = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
+                                  $("#orderNum").text(order);
+
+                                  $.post(
+                                     "club_card_buy.php",
+                                     {
+                                       itemname: itemname,
+                                       days: days,
+                                       sum: sum,
+                                       number: number,
+                                       user_name: user_name,
+                                       user_surname: user_surname,
+                                       country: country,
+                                       phone: phone,
+                                       sex: sex,
+                                       birthday: birthday,
+                                       email: email,
+                                       street: street,
+                                       house: house,
+                                       room: room,
+                                       city: city,
+                                       order: order
+                                     },
+                                     onAjaxSuccess
+                                   );
+                                    
+                                   function onAjaxSuccess(data)
+                                   {
+                                     // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
+                                     alert("Спасибо, вы оформили заказ. Ожидайте доставку. Номер заказа #"+order);
+                                   }
+                               });
+            </script>
+</body>
+</html>

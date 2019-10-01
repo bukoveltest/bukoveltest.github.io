@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html dir="LTR" lang="ru-ru">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+      <meta http-equiv="cache-control" content="no-cache">
+      <meta http-equiv="expires" content="0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Skipass</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <meta name="description" content="My Store" />
+            <script src="catalog/view/theme/bukovel/node_modules/jquery/dist/jquery.min.js"></script>
+            <script src="catalog/view/theme/bukovel/js/dropzone.js"></script>
+            <script src="catalog/view/theme/bukovel/node_modules/jquery-editable-select/dist/jquery-editable-select.js"></script>
+            <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+            <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-editable-select/dist/jquery-editable-select.css" />
+            <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/owl.carousel/dist/assets/owl.carousel.min.css" />
+            <link rel="stylesheet" href="catalog/view/theme/bukovel/assets/build/styles.css">
+            <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-nice-select/css/nice-select.css" />
+            <link rel="stylesheet" href="catalog/view/theme/bukovel/js/checkout/library/phoneformat/css/intlTelInput.css" />
+            <script src="https://kit.fontawesome.com/ac8fc7a7fb.js" crossorigin="anonymous"></script>
+            <script src="catalog/view/theme/bukovel/js/jquery.mask.js"></script>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <link rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/cropper/dist/cropper.min.css" />
+            <link href="image/catalog/cart.png" rel="icon" />
+      <style>
+         .hide {
+         display: none;
+         }
+         #error-msg {
+         color: #C00808;
+         font-weight: 300;
+         font-size: 12px;
+         margin-top: 10px;
+         }
+      </style>
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+         })(window,document,'script','dataLayer','GTM-KC3QLLS');
+      </script>
+      <!-- End Google Tag Manager --><script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   </head>
+   <body>
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC3QLLS"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+      <header class="header">
+         <div class="header-wrap">
+            <a href="index.html" class="logo"><img src="catalog/view/theme/bukovel/images/logo/ru-ru_logo.png" alt=""></a>
+            <nav class="nav">
+               <div class="nav-icon">
+                  <svg class="icon icon--burger">
+                     <use xlink:href="#icon--burger"></use>
+                  </svg>
+                  <svg class="icon icon--close">
+                     <use xlink:href="#icon--close"></use>
+                  </svg>
+               </div>
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#skiing-anchor">Катание</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#rental-of-ski-equipment-anchor">Прокат снаряжения</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#vip-cards-anchor">Клубные Карты</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#contacts-anchor">Контакты</a>
+                  </li>
+               </ul>
+            </nav>
+            </select> 
+               <select class="header__lang translation-links nice-select" name="lang" onchange="top.location=this.value">
+                        <option value="gold_buy_en.html"class="language__img english">EN</option>
+                        <option value="gold_buy.html"class="language__img russian"selected>RU </option>
+                        <option value="gold_buy_uk.html"class="language__img ukraine">UA</option>
+                </select>
+            <select id="currencySelector" class="header__lang translation-links" style="width: 60px">
+               <option value="₴">UAH</option>
+               <option value="€">EUR</option>
+               <option value="$">USD</option>
+            </select>
+         </div>
+      </header>
+      <form method="POST"  class="form__body" id="ident"  action="" enctype="multipart/form-data">
+            <div class="content clearfix vip-card-content" role="main">
+               <h3 class="page-title">Покупка VIP-карты</h3>
+               <div class="vip-card-info pull-left">
+                  <div class="info-header clearfix">
+                     <div class="header-panel">
+                        <img src="catalog/view/theme/bukovel/images/cart-items/ru-ru/2.png" class="pull-left card-image"/>
+                        <div class="card-info-hold pull-left">
+                           <h4>Клубная карта</h4>
+                           <h2 name="itemname">VIP-Golden</h2>
+                           <h3 class="usd" style="display: none;">182.77 $</h3>
+                           <h3 class="uah" style="display: relative;" name="sum">4 500.00 ₴</h3>
+                           <h3 class="eur" style="display: none;">165.15 €</h3>
+                        </div>
+                     </div>
+                     <div class="button-wrap">
+                        <i>Для покупки карты, пожалуйста</i>,<i> заполните форму <span class="form-right-label"></span> <span class="form-below-label"></span></i>
+                        <button class="buy-button" id="buy-button">Отправить</button>
+
+                     </div>
+                  </div>
+                  <div class="info-content">
+                     <div class="content-block" style="height: 340px;">
+                        <div class="section-title">
+                           <span>Про карту</span><br>
+                           это пластиковая карта ТК Буковель, которую можно использовать как многоразовый скипасc, при условии пополнения ее днями катания и прокатом снаряжения. Карта предоставляет владельцу следующие скидки:
+                        </div>
+                        <div class="info" style="height: 340px;">
+                           
+                           <ul>
+                              <li>60% на катание и прокат снаряжения при пополнении до 31 августа;
+                              </li>
+                              <li>50% на катание и прокат снаряжения при пополнении до 30 ноября;
+                              </li>
+                              <li>20% на катание и прокат снаряжения при пополнении с 1 декабря до конца сезона (на скипаcсы сроком действия до полного использования);</li>
+                              <li>20% на проживание в отелях: "Буковель", "Тавель", "Ирис", "Shelter";</li>
+                              <li>15% в сети ресторанов «Carte.L»: Lucky Bull, Filvarok (5 заведений), PLOV, Loungezone Veranda, Ryba Grill, Osteria Italiana, REBRA BBQ, 
+                                 Whisky Bar, SALO, MANGALICA, KOLYBA;
+                              </li>
+                              <li>10% на все услуги в медико-оздоровительном центре «Буковель».
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="content-block"style="height: 340px;">
+                        <div class="section-title">
+                           <span>Стоит знать</span>
+                        </div>
+                        <div class="info"style="height: 340px;">
+                           <ul>
+                              <li>карта Дисконтная программируется  днями катания и прокатом снаряжения, которые действительны до их полного использования в течение всего зимнего сезона, кроме периода;</li>
+                              <li>для проката снаряжения предусмотрено использование одной взрослой и одной детской позиции в день;</li>
+                              <li>клубная карта является персонифицированной и не может использоваться другими лицами. Персональные данные владельца сохраняются в базе данных ТК Буковель;</li>
+                              <li>дополнительные (акционные) скидки не суммируются;</li>
+                              <li>срок действия карты - 3 года с момента покупки. После пролонгации (продления) за 50% от стоимости карты, срок ее действия продлевается на последующие три года.</li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="user-form pull-left">
+                  <svg class="icon icon--close">
+                     <use xlink:href="#icon--close"></use>
+                  </svg>
+                  <div class="form">
+                     <div class="form__header">
+                        <span class="title">Идентификация</span>
+                        <span class="pull-right card-number">Карта 1<span class="color-gray">/1</span></span>
+                     </div>
+                     
+                     <div class="form__body" id="ident">
+
+                        <div class="card__header">
+                                      <span class="card__download-text">Аватар</span>
+                                      <div class="form__field">
+                                         <input type="file" name="photo" multiple accept="image/*,image/jpeg" style="font-size: x-small;" required>
+                                      </div>
+                                   </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input" required name="user-name" placeholder="Имя" value="" id="input-option323" >
+                           </div>
+                           <div class="form__field">			                          
+                              <input class="form__input" required name="user-surname" placeholder="Фамилия" value="" id="input-option324" >
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input  type="tel" class="form__input phone-mask" placeholder="Введите номер" name="phone" style=" padding-right: 70px;!important;"  value="" id="input-option328" required>
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input" type="email" name="e-mail" placeholder="E-mail" value="" id="input-option320" required>
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input" name="street" placeholder="Улица" value="" id="input-option326" required>
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input building" name="house" placeholder="Дом" value="" id="input-option322" required>
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input flat" name="room" placeholder="Квартира" required value="" id="input-option321">
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input city " name="city" placeholder="Город" value="" id="input-option318" required>
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input index" name="post-index" placeholder="Почтовый индекс" value="" id="input-option327" required>
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <input class="form__input input_date" name="birthday" placeholder="День рождения (ДД.ММ.ГГГГ)" value="" id="input-option426" required data-mask="00.00.0000">
+                           </div>
+                           <div class="form__field">
+                              <select class="form__input" name="sex" required id="input-option425">
+                                 <option disabled="">Пол</option>
+                                 <option value="male">Мужской</option>
+                                 <option value="female">Женский</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form__row">
+                           <div class="form__field">
+                              <select class="form__input" name="country" required id="input-option429">
+                                          <option disabled="">Choose Country</option>
+                                          <option value="+93">Afghanistan</option>
+                                          <option value="+355">Albania</option>
+                                          <option value="+21">Algeria</option>
+                                          <option value="+684">American Samoa</option>
+                                          <option value="+376">Andorra</option>
+                                          <option value="+244">Angola</option>
+                                          <option value="+1-264">Anguilla</option>
+                                          <option value="+1-268">Antigua and Barbuda</option>
+                                          <option value="+374">Armenia</option>
+                                          <option value="+54">Argentina</option>
+                                          <option value="+61">Australia</option>
+                                          <option value="+43">Austria</option>
+                                          <option value="+994">Azerbaijan</option>
+                                          <option value="+1-242">Bahamas</option>
+                                          <option value="+973">Bahrain</option>
+                                          <option value="+880">Bangladesh</option>
+                                          <option value="+1-246">Barbados</option>
+                                          <option value="+375">Belarus</option>
+                                          <option value="+32">Belgium</option>
+                                          <option value="+501">Belize</option>
+                                          <option value="+229">Benin</option>
+                                          <option value="+1-441">Bermuda</option>
+                                          <option value="+591">Bolivia</option>
+                                          <option value="+387">Bosnia and Herzegovina</option>
+                                          <option value="+267">Botswana</option>
+                                          <option value="+55">Brazil</option>
+                                          <option value="+1-284">British Virgin Islands</option>
+                                          <option value="+673">Brunei Darusalaam</option>
+                                          <option value="+359">Bulgaria</option>
+                                          <option value="+226">Burkina Faso</option>
+                                          <option value="+257">Burundi</option>
+                                          <option value="+855">Cambodia</option>
+                                          <option value="+237">Cameroon</option>
+                                          <option value="+1">Canada</option>
+                                          <option value="+238">Cape Verde</option>
+                                          <option value="+1-345">Cayman Islands</option>
+                                          <option value="+236">Central African Republic</option>
+                                          <option value="+235">Chad</option>
+                                          <option value="+56">Chile</option>
+                                          <option value="+86">China</option>
+                                          <option value="+672">Christmas Island</option>
+                                          <option value="+672">Cocos Islands</option>
+                                          <option value="+57">Colombia</option>
+                                          <option value="+1-670">Commonwealth of the Northern Mariana Islands</option>
+                                          <option value="+269">Comoros and Mayotte Island</option>
+                                          <option value="+242">Congo</option>
+                                          <option value="+682">Cook Islands</option>
+                                          <option value="+506">Costa Rica</option>
+                                          <option value="+385">Croatia</option>
+                                          <option value="+53">Cuba</option>
+                                          <option value="+357">Cyprus</option>
+                                          <option value="+420">Czech Republic</option>
+                                          <option value="+45">Denmark</option>
+                                          <option value="+246">Diego Garcia</option>
+                                          <option value="+253">Djibouti</option>
+                                          <option value="+1-767">Dominica</option>
+                                          <option value="+1-809">Dominican Republic</option>
+                                          <option value="+62">East Timor</option>
+                                          <option value="+593">Ecuador</option>
+                                          <option value="+20">Egypt</option>
+                                          <option value="+503">El Salvador</option>
+                                          <option value="+240">Equatorial Guinea</option>
+                                          <option value="+372">Estonia</option>
+                                          <option value="+251">Ethiopia</option>
+                                          <option value="+298">Faroe Islands</option>
+                                          <option value="+500">Falkland Islands</option>
+                                          <option value="+679">Fiji</option>
+                                          <option value="+358">Finland</option>
+                                          <option value="+33">France</option>
+                                          <option value="+590">French Antilles</option>
+                                          <option value="+594">French Guiana</option>
+                                          <option value="+689">French Polynesia</option>
+                                          <option value="+241">Gabon</option>
+                                          <option value="+220">Gambia</option>
+                                          <option value="+995">Georgia</option>
+                                          <option value="+49">Germany</option>
+                                          <option value="+233">Ghana</option>
+                                          <option value="+350">Gibraltar</option>
+                                          <option value="+30">Greece</option>
+                                          <option value="+299">Greenland</option>
+                                          <option value="+1-473">Grenada</option>
+                                          <option value="+671">Guam</option>
+                                          <option value="+502">Guatemala</option>
+                                          <option value="+224">Guinea</option>
+                                          <option value="+245">Guinea-Bissau</option>
+                                          <option value="+592">Guyana</option>
+                                          <option value="+509">Haiti</option>
+                                          <option value="+504">Honduras</option>
+                                          <option value="+852">Hong Kong</option>
+                                          <option value="+36">Hungary</option>
+                                          <option value="+354">Iceland</option>
+                                          <option value="+91">India</option>
+                                          <option value="+62">Indonesia</option>
+                                          <option value="+98">Iran</option>
+                                          <option value="+964">Iraq</option>
+                                          <option value="+353">Irish Republic</option>
+                                          <option value="+972">Israel</option>
+                                          <option value="+39">Italy</option>
+                                          <option value="+225">Ivory Coast</option>
+                                          <option value="+1-876">Jamaica</option>
+                                          <option value="+81">Japan</option>
+                                          <option value="+962">Jordan</option>
+                                          <option value="+7">Kazakhstan</option>
+                                          <option value="+254">Kenya</option>
+                                          <option value="+686">Kiribati Republic</option>
+                                          <option value="+996">Kirghizia</option>
+                                          <option value="+965">Kuwait</option>
+                                          <option value="+856">Laos</option>
+                                          <option value="+371">Latvia</option>
+                                          <option value="+961">Lebanon</option>
+                                          <option value="+266">Lesotho</option>
+                                          <option value="+231">Liberia</option>
+                                          <option value="+21">Libya</option>
+                                          <option value="+41">Liechtenstein</option>
+                                          <option value="+370">Lithuania</option>
+                                          <option value="+352">Luxembourg</option>
+                                          <option value="+853">Macao</option>
+                                          <option value="+389">Macedonia</option>
+                                          <option value="+261">Madagascar</option>
+                                          <option value="+265">Malawi</option>
+                                          <option value="+60">Malaysia</option>
+                                          <option value="+960">Maldives</option>
+                                          <option value="+223">Mali</option>
+                                          <option value="+356">Malta</option>
+                                          <option value="+692">Marshall Islands</option>
+                                          <option value="+596">Martinique</option>
+                                          <option value="+222">Mauritania</option>
+                                          <option value="+230">Mauritius</option>
+                                          <option value="+52">Mexico</option>
+                                          <option value="+691">Micronesia</option>
+                                          <option value="+377">Monaco</option>
+                                          <option value="+976">Mongolia</option>
+                                          <option value="+1-664">Montserrat</option>
+                                          <option value="+212">Morocco</option>
+                                          <option value="+258">Mozambique</option>
+                                          <option value="+95">Myanmar</option>
+                                          <option value="+264">Namibia</option>
+                                          <option value="+674">Nauru</option>
+                                          <option value="+977">Nepal</option>
+                                          <option value="+31">Netherlands</option>
+                                          <option value="+599">Netherlands Antilles</option>
+                                          <option value="+687">New Caledonia</option>
+                                          <option value="+64">New Zealand</option>
+                                          <option value="+505">Nicaragua</option>
+                                          <option value="+227">Niger</option>
+                                          <option value="+234">Nigeria</option>
+                                          <option value="+683">Niue</option>
+                                          <option value="+672">Norfolk Island</option>
+                                          <option value="+850">North Korea</option>
+                                          <option value="+967">North Yemen</option>
+                                          <option value="+670">Northern Mariana Islands</option>
+                                          <option value="+47">Norway</option>
+                                          <option value="+968">Oman</option>
+                                          <option value="+92">Pakistan</option>
+                                          <option value="+507">Panama</option>
+                                          <option value="+675">Papua New Guinea</option>
+                                          <option value="+595">Paraguay</option>
+                                          <option value="+51">Peru</option>
+                                          <option value="+63">Philippines</option>
+                                          <option value="+48">Poland</option>
+                                          <option value="+351">Portugal</option>
+                                          <option value="+1-787">Puerto Rico</option>
+                                          <option value="+974">Qatar</option>
+                                          <option value="+378">Republic of San Marino</option>
+                                          <option value="+262">Reunion</option>
+                                          <option value="+40">Romania</option>
+                                          <option value="+7">Russia</option>
+                                          <option value="+250">Rwandese Republic</option>
+                                          <option value="+247">Saint Helena and Ascension Island</option>
+                                          <option value="+508">Saint Pierre et Miquelon</option>
+                                          <option value="+39">San Marino</option>
+                                          <option value="+239">Sao Tome e Principe</option>
+                                          <option value="+966">Saudi Arabia</option>
+                                          <option value="+221">Senegal</option>
+                                          <option value="+248">Seychelles</option>
+                                          <option value="+232">Sierra Leone</option>
+                                          <option value="+65">Singapore</option>
+                                          <option value="+421">Slovakia</option>
+                                          <option value="+421">Slovakia</option>
+                                          <option value="+386">Slovenia</option>
+                                          <option value="+677">Solomon Islands</option>
+                                          <option value="+252">Somalia</option>
+                                          <option value="+27">South Africa</option>
+                                          <option value="+82">South Korea</option>
+                                          <option value="+969">South Yemen</option>
+                                          <option value="+34">Spain</option>
+                                          <option value="+94">Sri Lanka</option>
+                                          <option value="+1-869">St.Kitts and Nevis</option>
+                                          <option value="+1-758">St.Lucia</option>
+                                          <option value="+1-784">St.Vincent and the Grenadines</option>
+                                          <option value="+249">Sudan</option>
+                                          <option value="+597">Suriname</option>
+                                          <option value="+47">Svalbard and Jan Mayen Islands</option>
+                                          <option value="+268">Swaziland</option>
+                                          <option value="+46">Sweden</option>
+                                          <option value="+41">Switzerland</option>
+                                          <option value="+963">Syria</option>
+                                          <option value="+992">Tadjikistan</option>
+                                          <option value="+886">Taiwan</option>
+                                          <option value="+255">Tanzania</option>
+                                          <option value="+66">Thailand</option>
+                                          <option value="+228">Togolese Republic</option>
+                                          <option value="+690">Tokelau</option>
+                                          <option value="+676">Tonga</option>
+                                          <option value="+1-868">Trinidad and Tobago</option>
+                                          <option value="+21">Tunisia</option>
+                                          <option value="+90">Turkey</option>
+                                          <option value="+993">Turkmenistan</option>
+                                          <option value="+1-649">Turks & Caicos Islands</option>
+                                          <option value="+688">Tuvalu</option>
+                                          <option value="+1-340">US Virgin Islands</option>
+                                          <option value="+256">Uganda</option>
+                                          <option value="+380">Ukraine</option>
+                                          <option value="+971">United Arab Emirates</option>
+                                          <option value="+44">United Kingdom</option>
+                                          <option value="+598">Uruguay</option>
+                                          <option value="+1">USA</option>
+                                          <option value="+998">Uzbekistan</option>
+                                          <option value="+678">Vanuatu</option>
+                                          <option value="+39">Vatican City</option>
+                                          <option value="+58">Venezuela</option>
+                                          <option value="+84">Vietnam</option>
+                                          <option value="+681">Wallis and Futuna Islands</option>
+                                          <option value="+21">Western Sahara</option>
+                                          <option value="+685">Western Samoa</option>
+                                          <option value="+381">Yugoslavia</option>
+                                          <option value="+243">Zaire</option>
+                                          <option value="+260">Zambia</option>
+                                          <option value="+263">Zimbabwe</option>
+                              </select>
+                           </div>
+                           <div class="form__field">
+                              <input class="form__input index" name="post-index" placeholder="Область" value="" id="input-option327" required> 
+                           </div>
+                        </div>
+                  </div>
+                  </div>
+               </div>
+            </div>
+            </div>
+       </form> 
+            <footer class="footer">
+               <div class="connect" >
+                  <h4 class="connect__header">Обратная связь</h4>
+                  <form class="connect__form" action="feedback.php" id="connect" method="POST">
+                     <input required class="connect__name" name="feedback_name" placeholder="Ваше имя">
+                     <input class="connect__email" required type="email" name="feedback_mail" placeholder="E-mail">
+                     <textarea name="feedback_text" required class="connect__question" placeholder="Ваш вопрос"></textarea>
+                     <input class="connect__submit" type="submit" value="ОТПРАВИТЬ">
+                  </form>
+               </div>
+               <div class="info" id="contacts-anchor">
+                  <div class="phones">
+                     <h4 class="phones__header">Телефон</h4>
+                     <ul class="phones__list">
+                        <li class="phones__item">
+                           <svg class="icon icon--phone">
+                              <use xlink:href="#icon--phone"></use>
+                           </svg>
+                           +38 (044) 500-88-18        
+                        </li>
+                        <li class="phones__item">0 800 212-244</li>
+                     </ul>
+                  </div>
+                  <span class="email">
+                     <svg class="icon icon--message">
+                        <use xlink:href="#icon--message"></use>
+                     </svg>
+                     shop_admin@bukovel.com    
+                  </span>
+                  <div class="location">
+                     <h4 class="location__header">Адресс</h4>
+                     <span class="location__address">
+                        <svg class="icon icon--pin">
+                           <use xlink:href="#icon--pin"></use>
+                        </svg>
+                        вул. Сахарова 23 ж, корп. 5 м. Івано-Франківськ, 76019
+                     </span>
+                  </div>
+               </div>
+               <a class="bukovel" href=""><img src="catalog/view/theme/bukovel/images/bukovel_logo.png"></a>
+               <div class="verified"><a class="verified" href=" https://shop.bukovel.info/info&information_id=8">Verified by Visa</a></div>
+               <div class="master-card"><a class="verified" href=" https://shop.bukovel.info/info&information_id=7">MasterCard Secure Code</a></div>
+               <div class="master-card"><a class="verified" href=" https://shop.bukovel.info/info&information_id=6">Оплата и доставка</a></div>
+               <div class="master-card"><a class="verified" href=" https://shop.bukovel.info/info&information_id=3">Правила покупки и использования скипассов</a></div>
+               <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel"></h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                   <div class="modal-body">
+                     <h5>Спасибо, вы оформили заказ. Ожидайте доставку. Номер заказа #</h5><h5 id="orderNum"></h5>
+                   </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                   </div>
+                 </div>
+               </div>
+            </footer>
+            
+            <link type="text/css" rel="stylesheet" href="catalog/view/theme/bukovel/node_modules/jquery-autocomplete/jquery.autocomplete.css"/>
+            <script src="catalog/view/theme/bukovel/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+            <script src="catalog/view/theme/bukovel/node_modules/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+            <script src="catalog/view/theme/bukovel/node_modules/cropper/dist/cropper.min.js"></script>
+            <script src="catalog/view/theme/bukovel/node_modules/jquery-autocomplete/jquery.autocomplete.js"></script>
+            <script src="catalog/view/theme/bukovel/js/bundle.js"></script>
+            <!-- <script src="catalog/view/theme/bukovel/js/process.js"></script> -->
+            <!-- <script src="catalog/view/theme/bukovel/js/optionQuality.js"></script> -->
+            <script src="catalog/view/theme/bukovel/js/common.js"></script>
+            <script src="catalog/view/theme/bukovel/js/profile.js"></script>
+            <script src="catalog/view/theme/bukovel/js/checkout/library/phoneformat/js/intlTelInput.js"></script> 
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script src="jquery.maskedinput.min.js"></script>
+            <script>
+              $(document).ready(function(){
+                $(".input_date").mask("99.99.9999");
+                $(".phone-mask").mask("(999)-999-99-99");
+              });
+              var selector = document.getElementById("currencySelector");
+              var firstvalute = selector.value;
+              selector.onchange = function() {
+                             var valute = selector.value;
+                             if (firstvalute == "₴" && valute == "€") {
+                                 $(".uah").attr("style", "display: none;");
+                                 $(".eur").attr("style", "display: relative;");
+                                 $(".uah").removeAttr("name");
+                                 $(".eur").attr("name", "sum;");
+                                 firstvalute = selector.value; 
+                             }
+                             if (firstvalute == "₴" && valute == "$") {
+                                $(".uah").attr("style", "display: none;");
+                                $(".usd").attr("style", "display: relative;");
+                                $(".uah").removeAttr("name");
+                                $(".usd").attr("name", "sum;");
+                                 firstvalute = selector.value; 
+                              }
+                              if (firstvalute == "$" && valute == "₴") {
+                                $(".usd").attr("style", "display: none;");
+                                $(".uah").attr("style", "display: relative;");
+                                $(".usd").removeAttr("name");
+                                $(".uah").attr("name", "sum;");
+                                firstvalute = selector.value;      
+                              }
+                              if (firstvalute == "$" && valute == "€") {
+                                $(".usd").attr("style", "display: none;");
+                                $(".eur").attr("style", "display: relative;");
+                                $(".usd").removeAttr("name");
+                                $(".eur").attr("name", "sum;");
+                                firstvalute = selector.value;      
+                              }
+                              if (firstvalute == "€" && valute == "₴") {
+                                $(".eur").attr("style", "display: none;");
+                                $(".uah").attr("style", "display: relative;");
+                                $(".eur").removeAttr("name");
+                                $(".uah").attr("name", "sum;");
+                                firstvalute = selector.value;      
+                              }
+                                 if (firstvalute == "€" && valute == "$") {
+                                  $(".eur").attr("style", "display: none;");
+                                  $(".usd").attr("style", "display: relative;");
+                                  $(".eur").removeAttr("name");
+                                  $(".usd").attr("name", "sum;");
+                                 firstvalute = selector.value;    
+                              }
+                             }
+                             $("#buy-button").on("click", function(e){
+
+                                  var itemname = $("#button-cart").parent().parent("#ident").find("h3").text();
+                                  var days = $("#button-cart").parent().parent("#ident").find($(".option__discount").attr('name','days')).text();
+                                  var sum = $("#button-cart").parent().parent("#ident").find($(".option__price").attr('name','days')).text();
+                                  var number = $("#button-cart").parent().parent("#ident").find($(".numbers")).val();
+                                  var user_name = $("#button-cart").parent().parent("#ident").find($("input[name='user_name']")).val();
+                                  var user_surname = $("#button-cart").parent().parent("#ident").find($("input[name='user_surname']")).val();
+                                  var country = $("#button-cart").parent().parent("#ident").find($("select[name='country'] option:selected")).val();
+                                  var phone = $("#button-cart").parent().parent("#ident").find($(".phone-mask")).val();
+                                  var sex = $("#button-cart").parent().parent("#ident").find($("select[name='sex'] option:selected")).text();
+                                  var birthday = $("#button-cart").parent().parent("#ident").find($(".form__input.input_date")).val();
+                                  var email = $("#button-cart").parent().parent("#ident").find($("input[name='email']")).val();
+                                  var street = $("#button-cart").parent().parent("#ident").find($("input[name='street']")).val();
+                                  var house = $("#button-cart").parent().parent("#ident").find($("input[name='house']")).val();
+                                  var room = $("#button-cart").parent().parent("#ident").find($("input[name='room']")).val();
+                                  var city = $("#button-cart").parent().parent("#ident").find($("input[name='city']")).val();
+                                  var order = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
+                                  $("#orderNum").text(order);
+
+                                  $.post(
+                                     "club_card_buy.php",
+                                     {
+                                       itemname: itemname,
+                                       days: days,
+                                       sum: sum,
+                                       number: number,
+                                       user_name: user_name,
+                                       user_surname: user_surname,
+                                       country: country,
+                                       phone: phone,
+                                       sex: sex,
+                                       birthday: birthday,
+                                       email: email,
+                                       street: street,
+                                       house: house,
+                                       room: room,
+                                       city: city,
+                                       order: order
+                                     },
+                                     onAjaxSuccess
+                                   );
+                                    
+                                   function onAjaxSuccess(data)
+                                   {
+                                     // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
+                                     $("#thankYouModal").modal('show');
+                                   }
+                               });
+            </script>
+         </body>
+
+      </html>
+      
